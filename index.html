@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ms">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#101827">
+<title>SPSS Exam Trainer</title>
+<style>
+:root{--bg:#eef2f7;--card:#fff;--ink:#172033;--muted:#66738a;--line:#d8e0eb;--navy:#101827;--blue:#2856d8;--soft:#edf2ff;--green:#147a45;--gsoft:#eaf8f0;--red:#b42318;--rsoft:#ffefed;--amber:#956000;--asoft:#fff5d7}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);line-height:1.5}
+header{position:sticky;top:0;z-index:20;background:var(--navy);color:#fff;padding:11px 14px}
+header div{max-width:980px;margin:auto;display:flex;justify-content:space-between;align-items:center;gap:10px}
+header strong{font-size:16px}header span{font-size:11px;color:#bdc7d7}
+main{max-width:980px;margin:auto;padding:14px 12px 92px}.hidden{display:none!important}
+.card{background:var(--card);border:1px solid var(--line);border-radius:17px;padding:16px;margin:12px 0;box-shadow:0 10px 26px rgba(20,34,60,.07)}
+.hero{background:linear-gradient(135deg,#101827,#2b3e66);color:#fff;border:0}.hero p{color:#d6deeb}
+h1{font-size:27px;line-height:1.12;margin:8px 0}h2{font-size:21px;margin:0 0 10px}h3{font-size:16px;margin:16px 0 8px}p{margin:8px 0}
+.muted{color:var(--muted)}.small{font-size:12px}.badge{display:inline-block;padding:4px 9px;border-radius:999px;background:var(--soft);color:var(--blue);font-size:11px;font-weight:900}.badge.green{background:var(--gsoft);color:var(--green)}.badge.amber{background:var(--asoft);color:var(--amber)}
+button{border:0;border-radius:12px;padding:11px 13px;font:inherit;font-weight:850;background:var(--blue);color:#fff;cursor:pointer}
+button.secondary{background:#e9edf4;color:var(--ink)}button.ghost{background:#fff;color:var(--blue);border:1px solid var(--line)}button.full{width:100%}
+.grid{display:grid;gap:10px}.grid2{grid-template-columns:1fr}.tile{border:1px solid var(--line);border-radius:13px;padding:12px;background:#fff}.tile strong{display:block;margin-bottom:4px}
+.notice{border-left:4px solid var(--blue);padding:10px 12px;border-radius:9px;background:#f5f8ff;margin:10px 0}.notice.warn{border-color:#d69a00;background:var(--asoft)}
+.stepper{display:flex;gap:7px;overflow:auto;padding-bottom:4px}.stepper button{white-space:nowrap;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:8px 11px}.stepper button.active{background:var(--navy);color:#fff}
+.spssbox{border:1px solid #8f9bac;background:#fff;overflow:auto;margin:12px 0}.title{text-align:center;font:bold 17px Arial;padding:12px 8px 7px}
+table{border-collapse:collapse;width:100%;min-width:600px;font:13px Arial}th,td{padding:7px 9px;border-right:1px solid #c2c9d2;border-bottom:1px solid #aab4c1;text-align:right;color:#111}th{background:#e7e9ed;color:#24516e;text-align:center}td:first-child{text-align:left;background:#e7e9ed;color:#24516e}.label{text-align:left!important;background:#f0f1f3!important}.focus{background:#fff1a8!important;color:#111!important;font-weight:900;outline:2px solid #d7a900;outline-offset:-2px}
+.scan{display:grid;grid-template-columns:38px 1fr;gap:9px;align-items:start;margin:9px 0}.scan b{display:grid;place-items:center;background:var(--navy);color:#fff;border-radius:10px;height:38px}
+.template{background:#111827;color:#f8fafc;border-radius:12px;padding:12px;font:13px ui-monospace,Menlo,monospace;white-space:pre-wrap}
+.choice{display:block;border:1px solid var(--line);border-radius:10px;padding:9px;margin:7px 0}.choice:hover{background:#f4f7ff}
+.feedback{display:none;margin-top:9px;padding:10px;border-radius:10px;font-weight:750}.feedback.ok{display:block;background:var(--gsoft);color:var(--green)}.feedback.no{display:block;background:var(--rsoft);color:var(--red)}
+textarea,input[type=text]{width:100%;border:1px solid var(--line);border-radius:11px;padding:10px;font:inherit}textarea{min-height:145px}
+.progress{height:10px;background:#e4e9f0;border-radius:999px;overflow:hidden}.progress span{display:block;height:100%;background:linear-gradient(90deg,#2856d8,#1e9b65);width:0}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.toprow{display:flex;justify-content:space-between;gap:10px;align-items:center}
+.tabs{position:fixed;left:0;right:0;bottom:0;z-index:30;display:grid;grid-template-columns:repeat(4,1fr);gap:6px;background:#fff;border-top:1px solid var(--line);padding:8px 9px calc(8px + env(safe-area-inset-bottom))}
+.tabs button{background:#fff;color:var(--muted);font-size:11px;padding:8px 3px}.tabs button.active{background:var(--soft);color:var(--blue)}
+.builder{display:grid;gap:8px}.builder-row{border:1px solid var(--line);border-radius:12px;padding:10px}.builder-row select{width:100%;padding:9px;border:1px solid var(--line);border-radius:9px;background:#fff}
+details{border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin:10px 0}summary{font-weight:850;cursor:pointer}
+@media(min-width:720px){main{padding:20px 18px 95px}.card{padding:22px}.grid2{grid-template-columns:1fr 1fr}.tabs{left:50%;transform:translateX(-50%);max-width:650px;border:1px solid var(--line);border-bottom:0;border-radius:16px 16px 0 0}}
+</style>
+</head>
+<body>
+<header><div><strong>SPSS Exam Trainer</strong><span>Kenal pasti → Scan → Tafsir → Jawab sendiri</span></div></header>
+<main>
+<section id="home" class="page">
+<div class="card hero"><span class="badge green">BUKAN NOTA STATIK</span><h1>Trainer yang ajar mata kau membaca output SPSS</h1><p>Kau akan belajar cara kenal pasti table, medan mana perlu dilihat, bagaimana mula ayat, dan akhirnya jawab tanpa hint.</p><button onclick="go('learn')">Mula latihan sebenar</button></div>
+<div class="card"><h2>4 tahap pembelajaran</h2><div class="grid2">
+<div class="tile"><strong>1. Kenal table</strong><span class="muted">Nampak tajuk dan terus tahu soalan apa yang dijawab.</span></div>
+<div class="tile"><strong>2. Scan input penting</strong><span class="muted">Cari nilai yang relevan, abaikan nombor gangguan.</span></div>
+<div class="tile"><strong>3. Bina ayat</strong><span class="muted">Mulakan dengan struktur jawapan yang konsisten.</span></div>
+<div class="tile"><strong>4. Tanpa hint</strong><span class="muted">Jawab output penuh seperti exam sebenar.</span></div>
+</div></div>
+<div class="card"><h2>Formula jawapan universal</h2><div class="template">Berdasarkan jadual [NAMA TABLE], nilai [STATISTIK] ialah [NILAI]. Nilai ini menunjukkan [TAFSIRAN]. Oleh itu, [KESIMPULAN / TINDAKAN].</div></div>
+</section>
+
+<section id="learn" class="page hidden">
+<div class="card">
+<div class="toprow"><div><span class="badge">TAHAP 1–3</span><h2 style="margin-top:7px">Belajar satu table pada satu masa</h2></div><button class="secondary" onclick="go('home')">Menu</button></div>
+<div class="stepper" id="lessonTabs"></div>
+<div id="lesson"></div>
+</div>
+</section>
+
+<section id="practice" class="page hidden">
+<div class="card">
+<div class="toprow"><div><span class="badge green">TAHAP 4</span><h2 style="margin-top:7px">Hint semakin hilang</h2></div><button class="secondary" onclick="resetPractice()">Reset</button></div>
+<p class="muted">Setiap level mengurangkan bantuan sehingga kau perlu scan dan bina ayat sendiri.</p>
+<div class="row"><span class="badge" id="pLevel">LEVEL 1</span><b id="pScore">0/0</b></div><div class="progress"><span id="pBar"></span></div>
+<div id="practiceArea"></div><button id="nextBtn" class="full hidden" onclick="nextQ()">Soalan seterusnya</button>
+</div>
+</section>
+
+<section id="exam" class="page hidden">
+<div class="card">
+<div class="toprow"><div><span class="badge amber">EXAM MODE</span><h2 style="margin-top:7px">Output penuh tanpa highlight</h2></div><button class="secondary" onclick="resetExam()">Reset</button></div>
+<div class="notice"><b>Tugas:</b> Kenal pasti setiap table, scan nilai penting, kemudian tulis satu interpretasi lengkap.</div>
+<div id="examTables"></div>
+<h3>Jawapan kau</h3><textarea id="examAnswer" placeholder="Mulakan dengan: Berdasarkan jadual Reliability Statistics..."></textarea>
+<button class="full" onclick="markExam()">Semak struktur jawapan</button>
+<div id="examFeedback"></div>
+<details><summary>Skema jawapan cemerlang</summary><div class="template" id="model"></div></details>
+</div>
+</section>
+
+<section id="cheat" class="page hidden">
+<div class="card"><h2>Scan map 5 saat</h2>
+<div class="grid2">
+<div class="tile"><strong>Reliability Statistics</strong><span>Input: Cronbach’s Alpha → Output: tahap reliability.</span></div>
+<div class="tile"><strong>Item-Total Statistics</strong><span>Input: Corrected Item-Total Correlation + Alpha if Item Deleted → Output: item bermasalah.</span></div>
+<div class="tile"><strong>KMO and Bartlett</strong><span>Input: KMO + Sig. → Output: data sesuai untuk factor analysis atau tidak.</span></div>
+<div class="tile"><strong>Communalities</strong><span>Input: Extraction → Output: item kurang atau baik diterangkan faktor.</span></div>
+<div class="tile"><strong>Total Variance Explained</strong><span>Input: Eigenvalue + Cumulative % → Output: bilangan faktor dan jumlah variasi.</span></div>
+<div class="tile"><strong>Scree Plot</strong><span>Input: elbow → Output: sokongan bilangan faktor.</span></div>
+<div class="tile"><strong>Rotated Component Matrix</strong><span>Input: loading tertinggi + cross-loading → Output: item masuk faktor mana.</span></div>
+</div></div>
+</section>
+</main>
+<nav class="tabs">
+<button data-page="home" class="active" onclick="go('home')">Home</button>
+<button data-page="learn" onclick="go('learn')">Belajar</button>
+<button data-page="practice" onclick="go('practice')">Latihan</button>
+<button data-page="exam" onclick="go('exam')">Exam</button>
+</nav>
+<script>
+const SKEY='spssTrainer3';
+let st=JSON.parse(localStorage.getItem(SKEY)||'{"lesson":0,"q":0,"score":0,"answered":false}');
+function save(){localStorage.setItem(SKEY,JSON.stringify(st))}
+function go(id){document.querySelectorAll('.page').forEach(x=>x.classList.add('hidden'));document.getElementById(id).classList.remove('hidden');document.querySelectorAll('.tabs button').forEach(b=>b.classList.toggle('active',b.dataset.page===id));window.scrollTo({top:0});if(id==='practice')renderPractice()}
+function box(title,head,rows,note=''){return `<div class="spssbox"><div class="title">${title}</div><table>${head}${rows}</table>${note?`<div class="small" style="padding:6px 8px">${note}</div>`:''}</div>`}
+const L=[
+{short:'Reliability',title:'Reliability Statistics',question:'Soalan yang dijawab: Adakah instrumen konsisten?',html:box('Reliability Statistics','<tr><th>Cronbach\\'s Alpha</th><th>N of Items</th></tr>','<tr><td class="focus">.853</td><td>12</td></tr>'),inputs:['Cronbach’s Alpha = .853','N of Items = 12 (maklumat sokongan)'],ignore:'Tiada Sig., p-value, df atau loading dalam table ini.',start:"Berdasarkan jadual Reliability Statistics, nilai Cronbach's Alpha ialah .853 bagi 12 item.",meaning:'Nilai .853 menunjukkan kebolehpercayaan yang baik.',end:'Oleh itu, instrumen secara keseluruhannya adalah reliabel.'},
+{short:'Item-Total',title:'Item-Total Statistics',question:'Soalan yang dijawab: Item mana bermasalah?',html:box('Item-Total Statistics','<tr><th>Item</th><th>Corrected Item-Total Correlation</th><th>Alpha if Item Deleted</th></tr>','<tr><td>A1</td><td>.612</td><td>.841</td></tr><tr><td class="focus">A5</td><td class="focus">.254</td><td class="focus">.882</td></tr><tr><td>A6</td><td>.687</td><td>.839</td></tr>'),inputs:['Corrected Item-Total Correlation paling rendah','Banding Alpha if Item Deleted dengan alpha asal .853'],ignore:'Jangan tengok satu kolum sahaja.',start:'Berdasarkan jadual Item-Total Statistics, item A5 mempunyai Corrected Item-Total Correlation paling rendah, iaitu .254.',meaning:'Alpha meningkat daripada .853 kepada .882 jika A5 dibuang.',end:'Oleh itu, A5 perlu disemak dan boleh dipertimbangkan untuk digugurkan berdasarkan kandungan dan teori.'},
+{short:'KMO/Bartlett',title:"KMO and Bartlett's Test",question:'Soalan yang dijawab: Bolehkah factor analysis dijalankan?',html:box("KMO and Bartlett's Test",'<tr><th colspan="2"></th><th>Value</th></tr>','<tr><td colspan="2">Kaiser-Meyer-Olkin Measure of Sampling Adequacy.</td><td class="focus">.824</td></tr><tr><td rowspan="3">Bartlett\\'s Test of Sphericity</td><td class="label">Approx. Chi-Square</td><td>543.281</td></tr><tr><td class="label">df</td><td>120</td></tr><tr><td class="label">Sig.</td><td class="focus">.000</td></tr>'),inputs:['KMO = .824','Sig. = .000 → lapor p < .001'],ignore:'Approx. Chi-Square dan df biasanya bukan fokus utama jawapan asas.',start:'Berdasarkan jadual KMO and Bartlett’s Test, nilai KMO ialah .824 dan Bartlett’s Test adalah signifikan, p < .001.',meaning:'KMO sangat baik dan korelasi antara item mencukupi.',end:'Oleh itu, data sesuai untuk factor analysis.'},
+{short:'Communalities',title:'Communalities',question:'Soalan yang dijawab: Item mana kurang diterangkan oleh faktor?',html:box('Communalities','<tr><th>Item</th><th>Initial</th><th>Extraction</th></tr>','<tr><td>Q1</td><td>1.000</td><td>.721</td></tr><tr><td>Q2</td><td>1.000</td><td>.654</td></tr><tr><td class="focus">Q4</td><td>1.000</td><td class="focus">.298</td></tr><tr><td>Q5</td><td>1.000</td><td>.744</td></tr>'),inputs:['Kolum Extraction','Cari nilai paling rendah'],ignore:'Initial 1.000 bukan nilai yang perlu dihuraikan.',start:'Berdasarkan jadual Communalities, item Q4 mempunyai nilai Extraction paling rendah, iaitu .298.',meaning:'Q4 kurang diterangkan oleh faktor yang terbentuk.',end:'Oleh itu, Q4 perlu disemak bersama bukti lain.'},
+{short:'Variance',title:'Total Variance Explained',question:'Soalan yang dijawab: Berapa faktor dan berapa % variasi diterangkan?',html:box('Total Variance Explained','<tr><th>Component</th><th>Eigenvalue</th><th>% Variance</th><th>Cumulative %</th></tr>','<tr><td>1</td><td class="focus">4.588</td><td>38.24</td><td>38.24</td></tr><tr><td>2</td><td class="focus">2.236</td><td>18.63</td><td>56.87</td></tr><tr><td>3</td><td class="focus">1.370</td><td>11.42</td><td class="focus">68.29</td></tr><tr><td>4</td><td>.811</td><td>6.76</td><td>75.05</td></tr>'),inputs:['Bilangan eigenvalue > 1','Cumulative % pada faktor terakhir yang dikekalkan'],ignore:'Jangan ambil Cumulative % komponen 4 kerana eigenvalue .811.',start:'Berdasarkan jadual Total Variance Explained, tiga komponen mempunyai eigenvalue melebihi 1.',meaning:'Ketiga-tiga faktor menerangkan 68.29% daripada jumlah variasi.',end:'Oleh itu, penyelesaian tiga faktor adalah memadai berdasarkan kriteria ini.'},
+{short:'Scree Plot',title:'Scree Plot',question:'Soalan yang dijawab: Adakah graf menyokong bilangan faktor?',html:`<svg viewBox="0 0 560 300" style="width:100%;border:1px solid var(--line);background:#fff"><text x="235" y="24" font-family="Arial" font-weight="700">Scree Plot</text><line x1="58" y1="255" x2="525" y2="255" stroke="#222"/><line x1="58" y1="255" x2="58" y2="42" stroke="#222"/><polyline points="95,60 155,135 215,195 275,230 335,240 395,245 455,249" fill="none" stroke="#2b5797" stroke-width="3"/><circle cx="95" cy="60" r="5"/><circle cx="155" cy="135" r="5"/><circle cx="215" cy="195" r="5"/><circle cx="275" cy="230" r="5"/><line x1="215" y1="45" x2="215" y2="255" stroke="#b42318" stroke-dasharray="5 5"/><text x="225" y="58" font-family="Arial" font-size="12" fill="#b42318">elbow sekitar 3</text></svg>`,inputs:['Cari elbow','Lihat bila graf mula mendatar'],ignore:'Jangan tentukan bilangan faktor melalui titik paling tinggi sahaja.',start:'Berdasarkan scree plot, titik elbow berlaku sekitar komponen ketiga.',meaning:'Selepas komponen ketiga, graf mula mendatar.',end:'Oleh itu, scree plot menyokong pengekalan tiga faktor.'},
+{short:'Rotated Matrix',title:'Rotated Component Matrix',question:'Soalan yang dijawab: Item masuk faktor mana?',html:box('Rotated Component Matrixᵃ','<tr><th>Item</th><th>Component 1</th><th>Component 2</th><th>Component 3</th></tr>','<tr><td>Q1</td><td class="focus">.821</td><td>.212</td><td>.105</td></tr><tr><td>Q2</td><td class="focus">.798</td><td>.244</td><td>.122</td></tr><tr><td>Q3</td><td>.190</td><td class="focus">.744</td><td>.208</td></tr><tr><td class="focus">Q4</td><td class="focus">.421</td><td class="focus">.466</td><td>.130</td></tr><tr><td>Q5</td><td>.105</td><td>.172</td><td class="focus">.831</td></tr>'),inputs:['Loading tertinggi setiap item','Cari dua loading yang hampir sama'],ignore:'Jangan hanya sebut loading tertinggi tanpa semak cross-loading.',start:'Berdasarkan jadual Rotated Component Matrix, Q1 dan Q2 memuat tinggi pada Faktor 1, Q3 pada Faktor 2, dan Q5 pada Faktor 3.',meaning:'Q4 menunjukkan cross-loading pada Faktor 1 (.421) dan Faktor 2 (.466).',end:'Oleh itu, Q4 perlu disemak dari segi kandungan dan kejelasan konstruk.'}
+];
+function tabs(){document.getElementById('lessonTabs').innerHTML=L.map((x,i)=>`<button class="${i===st.lesson?'active':''}" onclick="openL(${i})">${i+1}. ${x.short}</button>`).join('')}
+function openL(i){st.lesson=i;save();tabs();const x=L[i];document.getElementById('lesson').innerHTML=`<span class="badge">${i+1}/7</span><h2 style="margin-top:8px">${x.title}</h2><div class="notice"><b>${x.question}</b></div>${x.html}<h3>Cara kenal pasti</h3><div class="scan"><b>1</b><div><strong>Lihat tajuk table</strong><br><span class="muted">Tajuk memberitahu jenis keputusan yang sedang diuji.</span></div></div><div class="scan"><b>2</b><div><strong>Scan input penting</strong><br>${x.inputs.map(v=>'• '+v).join('<br>')}</div></div><div class="scan"><b>3</b><div><strong>Abaikan gangguan</strong><br><span class="muted">${x.ignore}</span></div></div><h3>Bina ayat langkah demi langkah</h3><div class="builder"><div class="builder-row"><strong>Ayat 1 — Bukti</strong><p>${x.start}</p></div><div class="builder-row"><strong>Ayat 2 — Maksud</strong><p>${x.meaning}</p></div><div class="builder-row"><strong>Ayat 3 — Kesimpulan</strong><p>${x.end}</p></div></div><div class="template">${x.start} ${x.meaning} ${x.end}</div><div class="row" style="margin-top:12px"><button class="secondary" ${i===0?'disabled':''} onclick="openL(${i-1})">← Sebelum</button><button onclick="${i<L.length-1?`openL(${i+1})`:`go('practice')`}">${i<L.length-1?'Seterusnya →':'Mula latihan →'}</button></div>`}
+tabs();openL(st.lesson);
+
+const Q=[
+{lv:1,q:'Kau nampak tajuk “Reliability Statistics”. Apakah soalan table ini?',o:['Data sesuai untuk factor analysis?','Instrumen reliabel?','Item masuk faktor mana?'],a:1,e:'Table ini menjawab kebolehpercayaan instrumen.'},
+{lv:1,q:'Dalam KMO and Bartlett, input utama?',o:['KMO dan Sig.','df dan Chi-square sahaja','Alpha dan N of Items'],a:0,e:'KMO dan Sig. ialah scan utama.'},
+{lv:1,q:'Dalam Communalities, kolum yang perlu dilihat?',o:['Initial','Extraction','Component'],a:1,e:'Extraction menunjukkan sejauh mana item diterangkan.'},
+{lv:2,q:'Alpha .853. Ayat mula terbaik?',o:["Nilai ini bagus.","Berdasarkan jadual Reliability Statistics, nilai Cronbach's Alpha ialah .853.","Oleh itu semua item betul."],a:1,e:'Ayat exam bermula dengan nama table, statistik dan nilai.'},
+{lv:2,q:'KMO .824 dan Sig. .000. Cara tulis?',o:['KMO .824 dan p < .001','KMO .824 dan p = 0','KMO tidak penting'],a:0,e:'Sig. .000 dilaporkan p < .001.'},
+{lv:2,q:'Tiga eigenvalue >1 dan cumulative 68.29%. Kesimpulan?',o:['Tiga faktor menerangkan 68.29% variasi','Alpha 68.29','Tiga item perlu dibuang'],a:0,e:'Gabungkan bilangan faktor dan cumulative variance.'},
+{lv:3,q:'A5 correlation .254 dan alpha naik .853→.882. Apakah ayat matang?',o:['Buang serta-merta','A5 perlu disemak dan dipertimbangkan untuk digugurkan berdasarkan teori','Semua item gagal'],a:1,e:'Jangan buat keputusan mekanikal tanpa kandungan dan teori.'},
+{lv:3,q:'Q4 loading .421 dan .466 pada dua faktor. Apakah diagnosis?',o:['Cross-loading','Reliability tinggi','KMO rendah'],a:0,e:'Dua loading hampir sama menunjukkan cross-loading.'},
+{lv:3,q:'C4 lemah dalam Item-Total, communality .292 dan cross-loading. Rumusan?',o:['Bukti konsisten menunjukkan C4 perlu diberi perhatian serius','Abaikan kerana alpha tinggi','KMO pasti rendah'],a:0,e:'Jawapan cemerlang menggabungkan bukti merentas table.'}
+];
+function renderPractice(){if(st.q>=Q.length){document.getElementById('practiceArea').innerHTML=`<div class="notice"><h2>${Math.round(st.score/Q.length*100)}%</h2><b>${st.score>=7?'Kau boleh masuk Exam Mode.':'Ulang sehingga sekurang-kurangnya 7/9.'}</b></div><button class="full" onclick="go('exam')">Masuk Exam Mode</button>`;document.getElementById('nextBtn').classList.add('hidden');return}const x=Q[st.q];document.getElementById('pLevel').textContent='LEVEL '+x.lv;document.getElementById('pScore').textContent=`${st.score}/${st.q}`;document.getElementById('pBar').style.width=(st.q/Q.length*100)+'%';document.getElementById('practiceArea').innerHTML=`<div class="tile"><span class="badge">SOALAN ${st.q+1}/${Q.length}</span><h3>${x.q}</h3>${x.o.map((v,i)=>`<label class="choice"><input type="radio" name="opt" value="${i}"> ${v}</label>`).join('')}<button class="full" onclick="checkQ()">Semak</button><div id="fb" class="feedback"></div></div>`;document.getElementById('nextBtn').classList.add('hidden')}
+function checkQ(){if(st.answered)return;const v=document.querySelector('input[name=opt]:checked'),f=document.getElementById('fb');if(!v){f.className='feedback no';f.textContent='Pilih jawapan dahulu.';return}const x=Q[st.q],ok=Number(v.value)===x.a;st.answered=true;if(ok)st.score++;save();f.className='feedback '+(ok?'ok':'no');f.textContent=(ok?'Betul. ':'Belum tepat. ')+x.e;document.getElementById('nextBtn').classList.remove('hidden')}
+function nextQ(){st.q++;st.answered=false;save();renderPractice()}function resetPractice(){st.q=0;st.score=0;st.answered=false;save();renderPractice()}
+
+const exam=box('Reliability Statistics','<tr><th>Cronbach\\'s Alpha</th><th>N of Items</th></tr>','<tr><td>.918</td><td>14</td></tr>')+box('Item-Total Statistics','<tr><th>Item</th><th>Corrected Item-Total Correlation</th><th>Alpha if Item Deleted</th></tr>','<tr><td>C1</td><td>.721</td><td>.907</td></tr><tr><td>C2</td><td>.694</td><td>.909</td></tr><tr><td>C3</td><td>.663</td><td>.911</td></tr><tr><td>C4</td><td>.286</td><td>.921</td></tr>')+box("KMO and Bartlett's Test",'<tr><th colspan="2"></th><th>Value</th></tr>','<tr><td colspan="2">Kaiser-Meyer-Olkin Measure of Sampling Adequacy.</td><td>.792</td></tr><tr><td rowspan="3">Bartlett\\'s Test</td><td class="label">Approx. Chi-Square</td><td>1240.580</td></tr><tr><td class="label">df</td><td>91</td></tr><tr><td class="label">Sig.</td><td>.000</td></tr>')+box('Communalities','<tr><th>Item</th><th>Initial</th><th>Extraction</th></tr>','<tr><td>C1</td><td>1.000</td><td>.742</td></tr><tr><td>C2</td><td>1.000</td><td>.688</td></tr><tr><td>C3</td><td>1.000</td><td>.624</td></tr><tr><td>C4</td><td>1.000</td><td>.292</td></tr>')+box('Total Variance Explained','<tr><th>Component</th><th>Eigenvalue</th><th>% Variance</th><th>Cumulative %</th></tr>','<tr><td>1</td><td>5.012</td><td>35.800</td><td>35.800</td></tr><tr><td>2</td><td>2.470</td><td>17.640</td><td>53.440</td></tr><tr><td>3</td><td>1.516</td><td>10.830</td><td>64.270</td></tr><tr><td>4</td><td>.812</td><td>5.800</td><td>70.070</td></tr>')+box('Rotated Component Matrix','<tr><th>Item</th><th>Factor 1</th><th>Factor 2</th><th>Factor 3</th></tr>','<tr><td>C1</td><td>.812</td><td>.190</td><td>.102</td></tr><tr><td>C2</td><td>.774</td><td>.210</td><td>.114</td></tr><tr><td>C3</td><td>.186</td><td>.732</td><td>.208</td></tr><tr><td>C4</td><td>.438</td><td>.461</td><td>.125</td></tr>');
+document.getElementById('examTables').innerHTML=exam;
+document.getElementById('model').textContent=`Berdasarkan jadual Reliability Statistics, nilai Cronbach's Alpha ialah .918 bagi 14 item. Nilai ini menunjukkan instrumen mempunyai kebolehpercayaan yang sangat tinggi.
+
+Item-Total Statistics menunjukkan bahawa C4 mempunyai Corrected Item-Total Correlation paling rendah, iaitu .286. Alpha meningkat sedikit kepada .921 jika C4 dibuang. Oleh itu, C4 perlu disemak, tetapi tidak seharusnya dibuang secara automatik tanpa mempertimbangkan kandungan dan teori.
+
+Nilai KMO ialah .792 dan Bartlett's Test adalah signifikan, p < .001. Oleh itu, data sesuai untuk factor analysis.
+
+Dalam jadual Communalities, C4 mempunyai nilai Extraction paling rendah, iaitu .292, menunjukkan item tersebut kurang diterangkan oleh faktor.
+
+Tiga komponen mempunyai eigenvalue melebihi 1 dan menerangkan 64.27% daripada jumlah variasi.
+
+Rotated Component Matrix menunjukkan C1 dan C2 memuat pada Faktor 1, C3 pada Faktor 2, manakala C4 menunjukkan cross-loading pada Faktor 1 (.438) dan Faktor 2 (.461). Secara keseluruhan, instrumen reliabel dan data sesuai untuk factor analysis, tetapi C4 perlu diberi perhatian serius kerana menunjukkan masalah secara konsisten merentas beberapa output.`;
+function markExam(){const t=document.getElementById('examAnswer').value.toLowerCase(),checks=[['Nama Reliability Statistics','reliability'],['Cronbach’s Alpha .918','.918'],['C4 item bermasalah','c4'],['KMO .792','.792'],['Bartlett p < .001',t.includes('p < .001')||t.includes('p<.001')],['Tiga faktor',t.includes('tiga faktor')||t.includes('3 faktor')],['64.27%','64.27'],['Cross-loading','cross-loading']];let score=0,html='<div class="card"><h3>Rubrik struktur</h3>';checks.forEach(c=>{const ok=typeof c[1]==='boolean'?c[1]:t.includes(c[1]);if(ok)score++;html+=`<div class="${ok?'feedback ok':'feedback no'}">${ok?'✓':'✗'} ${c[0]}</div>`});html+=`<div class="notice"><b>Skor struktur: ${score}/8</b><p>Ini menyemak kewujudan bukti penting, bukan kualiti bahasa penuh.</p></div></div>`;document.getElementById('examFeedback').innerHTML=html}
+function resetExam(){document.getElementById('examAnswer').value='';document.getElementById('examFeedback').innerHTML=''}
+renderPractice();
+</script>
+</body></html>
