@@ -3,151 +3,368 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#101827">
-<title>SPSS Exam Trainer</title>
+<meta name="theme-color" content="#060a12">
+<title>SPSS Exam Trainer v5.6 Eye Comfort</title>
 <style>
-:root{--bg:#eef2f7;--card:#fff;--ink:#172033;--muted:#66738a;--line:#d8e0eb;--navy:#101827;--blue:#2856d8;--soft:#edf2ff;--green:#147a45;--gsoft:#eaf8f0;--red:#b42318;--rsoft:#ffefed;--amber:#956000;--asoft:#fff5d7}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);line-height:1.5}
-header{position:sticky;top:0;z-index:20;background:var(--navy);color:#fff;padding:11px 14px}
-header div{max-width:980px;margin:auto;display:flex;justify-content:space-between;align-items:center;gap:10px}
-header strong{font-size:16px}header span{font-size:11px;color:#bdc7d7}
-main{max-width:980px;margin:auto;padding:14px 12px 92px}.hidden{display:none!important}
-.card{background:var(--card);border:1px solid var(--line);border-radius:17px;padding:16px;margin:12px 0;box-shadow:0 10px 26px rgba(20,34,60,.07)}
-.hero{background:linear-gradient(135deg,#101827,#2b3e66);color:#fff;border:0}.hero p{color:#d6deeb}
-h1{font-size:27px;line-height:1.12;margin:8px 0}h2{font-size:21px;margin:0 0 10px}h3{font-size:16px;margin:16px 0 8px}p{margin:8px 0}
-.muted{color:var(--muted)}.small{font-size:12px}.badge{display:inline-block;padding:4px 9px;border-radius:999px;background:var(--soft);color:var(--blue);font-size:11px;font-weight:900}.badge.green{background:var(--gsoft);color:var(--green)}.badge.amber{background:var(--asoft);color:var(--amber)}
-button{border:0;border-radius:12px;padding:11px 13px;font:inherit;font-weight:850;background:var(--blue);color:#fff;cursor:pointer}
-button.secondary{background:#e9edf4;color:var(--ink)}button.ghost{background:#fff;color:var(--blue);border:1px solid var(--line)}button.full{width:100%}
-.grid{display:grid;gap:10px}.grid2{grid-template-columns:1fr}.tile{border:1px solid var(--line);border-radius:13px;padding:12px;background:#fff}.tile strong{display:block;margin-bottom:4px}
-.notice{border-left:4px solid var(--blue);padding:10px 12px;border-radius:9px;background:#f5f8ff;margin:10px 0}.notice.warn{border-color:#d69a00;background:var(--asoft)}
-.stepper{display:flex;gap:7px;overflow:auto;padding-bottom:4px}.stepper button{white-space:nowrap;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:8px 11px}.stepper button.active{background:var(--navy);color:#fff}
-.spssbox{border:1px solid #8f9bac;background:#fff;overflow:auto;margin:12px 0}.title{text-align:center;font:bold 17px Arial;padding:12px 8px 7px}
-table{border-collapse:collapse;width:100%;min-width:600px;font:13px Arial}th,td{padding:7px 9px;border-right:1px solid #c2c9d2;border-bottom:1px solid #aab4c1;text-align:right;color:#111}th{background:#e7e9ed;color:#24516e;text-align:center}td:first-child{text-align:left;background:#e7e9ed;color:#24516e}.label{text-align:left!important;background:#f0f1f3!important}.focus{background:#fff1a8!important;color:#111!important;font-weight:900;outline:2px solid #d7a900;outline-offset:-2px}
-.scan{display:grid;grid-template-columns:38px 1fr;gap:9px;align-items:start;margin:9px 0}.scan b{display:grid;place-items:center;background:var(--navy);color:#fff;border-radius:10px;height:38px}
-.template{background:#111827;color:#f8fafc;border-radius:12px;padding:12px;font:13px ui-monospace,Menlo,monospace;white-space:pre-wrap}
-.choice{display:block;border:1px solid var(--line);border-radius:10px;padding:9px;margin:7px 0}.choice:hover{background:#f4f7ff}
-.feedback{display:none;margin-top:9px;padding:10px;border-radius:10px;font-weight:750}.feedback.ok{display:block;background:var(--gsoft);color:var(--green)}.feedback.no{display:block;background:var(--rsoft);color:var(--red)}
-textarea,input[type=text]{width:100%;border:1px solid var(--line);border-radius:11px;padding:10px;font:inherit}textarea{min-height:145px}
-.progress{height:10px;background:#e4e9f0;border-radius:999px;overflow:hidden}.progress span{display:block;height:100%;background:linear-gradient(90deg,#2856d8,#1e9b65);width:0}
-.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.toprow{display:flex;justify-content:space-between;gap:10px;align-items:center}
-.tabs{position:fixed;left:0;right:0;bottom:0;z-index:30;display:grid;grid-template-columns:repeat(4,1fr);gap:6px;background:#fff;border-top:1px solid var(--line);padding:8px 9px calc(8px + env(safe-area-inset-bottom))}
-.tabs button{background:#fff;color:var(--muted);font-size:11px;padding:8px 3px}.tabs button.active{background:var(--soft);color:var(--blue)}
-.builder{display:grid;gap:8px}.builder-row{border:1px solid var(--line);border-radius:12px;padding:10px}.builder-row select{width:100%;padding:9px;border:1px solid var(--line);border-radius:9px;background:#fff}
-details{border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin:10px 0}summary{font-weight:850;cursor:pointer}
-@media(min-width:720px){main{padding:20px 18px 95px}.card{padding:22px}.grid2{grid-template-columns:1fr 1fr}.tabs{left:50%;transform:translateX(-50%);max-width:650px;border:1px solid var(--line);border-bottom:0;border-radius:16px 16px 0 0}}
+:root{
+  color-scheme:dark;
+  --bg:#060a12;--panel:#0c1422;--panel2:#111d30;--panel3:#17253c;
+  --text:#f3f6fb;--muted:#a9b6ca;--line:#2b3b55;
+  --accent:#7898ff;--accent2:#496fe8;--good:#46d69a;--warn:#e9bd58;--bad:#ff7182;
+
+  /* Default: dim paper — lower contrast than pure white/black */
+  --spss-bg:#d8d1c4;
+  --spss-title:#bfb5a5;
+  --spss-head:#c9c0b2;
+  --spss-label:#d0c8bc;
+  --spss-text:#24211d;
+  --spss-border:#625c53;
+}
+body[data-table-theme="cool"]{
+  --spss-bg:#c5cdd2;
+  --spss-title:#aeb8bf;
+  --spss-head:#b8c1c7;
+  --spss-label:#c0c8cd;
+  --spss-text:#182026;
+  --spss-border:#53606a;
+}
+body[data-table-theme="dark"]{
+  --spss-bg:#202733;
+  --spss-title:#303a49;
+  --spss-head:#2a3442;
+  --spss-label:#252e3b;
+  --spss-text:#e7edf4;
+  --spss-border:#58677b;
+}
+*{box-sizing:border-box}
+html,body{width:100%;height:100%;margin:0;overflow:hidden}
+body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.42}
+button,textarea,select{font:inherit}
+button{border:0;border-radius:11px;min-height:42px;padding:9px 13px;font-weight:850;cursor:pointer;touch-action:manipulation}
+button:disabled{opacity:.36;cursor:not-allowed}
+button.primary{background:linear-gradient(135deg,var(--accent2),#6f8df7);color:#fff}
+button.secondary{background:var(--panel3);color:var(--text);border:1px solid var(--line)}
+button.ghost{background:transparent;color:var(--muted)}
+button:focus-visible,.cell:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid rgba(120,152,255,.55);outline-offset:2px}
+.app{width:100%;min-width:0;height:100vh;height:100dvh;display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:52px minmax(0,1fr) 58px}
+.topbar{min-width:0;width:100%;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:6px 12px;border-bottom:1px solid var(--line);background:#080d17}
+.brand{min-width:0}.brand strong{display:block;font-size:14px}.brand small{display:block;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.version{flex:0 0 auto;min-height:30px;border:1px solid var(--line);border-radius:999px;padding:4px 9px;color:var(--accent);background:var(--panel2);font-size:10px;font-weight:900}
+.viewport{min-width:0;width:100%;min-height:0;padding:7px;overflow:hidden}
+.screen{height:100%;max-width:1040px;margin:auto}
+.card{height:100%;min-height:0;display:grid;grid-template-rows:auto minmax(0,1fr) auto;border:1px solid var(--line);border-radius:17px;background:linear-gradient(180deg,var(--panel),#09111e);overflow:hidden}
+.head{padding:10px 12px 8px;border-bottom:1px solid var(--line)}
+.head h1,.head h2{margin:3px 0 0;line-height:1.12}.head h1{font-size:clamp(21px,4vw,32px)}.head h2{font-size:clamp(18px,3vw,25px)}
+.eyebrow{color:var(--accent);font-size:10px;font-weight:950;letter-spacing:.08em;text-transform:uppercase}
+.body{min-height:0;overflow:auto;padding:9px 11px;overscroll-behavior:contain}
+.foot{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 9px;border-top:1px solid var(--line);background:#080f1b}
+.bottomnav{min-width:0;width:100%;display:grid;grid-template-columns:repeat(4,1fr);gap:4px;padding:5px 7px calc(5px + env(safe-area-inset-bottom));border-top:1px solid var(--line);background:#070c15}
+.navbtn{min-width:0;min-height:45px;padding:4px 2px;background:transparent;color:var(--muted);font-size:10px}
+.navbtn b{display:block;font-size:17px;line-height:1}.navbtn.active{background:var(--panel2);color:var(--accent)}
+.hero{min-height:100%;display:grid;align-content:center;gap:10px;max-width:760px;margin:auto}
+.hero p{margin:0;color:var(--muted)}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.stat{padding:9px;border:1px solid var(--line);border-radius:11px;background:var(--panel2)}
+.stat strong{display:block}.stat span{display:block;color:var(--muted);font-size:11px}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.formula{padding:9px;border:1px solid var(--line);border-radius:11px;background:#070d17;color:#dce5f4;font-size:12px}
+.stages{display:flex;gap:5px;overflow:auto;scrollbar-width:none;margin-bottom:7px}.stages::-webkit-scrollbar{display:none}
+.stage{flex:0 0 auto;padding:6px 9px;border-radius:999px;border:1px solid var(--line);background:var(--panel2);color:var(--muted);font-size:10px;font-weight:850}
+.stage.current{color:var(--accent);border-color:var(--accent2)}.stage.done{color:var(--good)}
+select{width:100%;border:1px solid var(--line);border-radius:9px;background:var(--panel2);color:var(--text);padding:8px;margin-bottom:7px}
+.prompt{padding:8px 10px;border-left:4px solid var(--accent2);border-radius:9px;background:var(--panel2);font-size:12px;margin:7px 0}
+.context{display:inline-block;color:var(--warn);font-size:11px;font-weight:850;margin:2px 0 4px}
+.output-shell{
+  max-width:820px;
+  max-height:min(38vh,330px);
+  overflow:auto;
+  margin:7px auto;
+  border:1.5px solid var(--spss-border);
+  border-radius:9px;
+  background:var(--spss-bg);
+  box-shadow:0 10px 26px rgba(0,0,0,.24);
+}
+.output-title{
+  text-align:center;
+  padding:7px;
+  background:var(--spss-title);
+  color:var(--spss-text);
+  border-bottom:1.5px solid var(--spss-border);
+  font:800 clamp(13px,2vw,17px) Arial,Helvetica,sans-serif;
+}
+table{
+  width:100%;
+  border-collapse:collapse;
+  table-layout:fixed;
+  font:clamp(9px,1.55vw,13px) Arial,Helvetica,sans-serif;
+  color:var(--spss-text);
+  background:var(--spss-bg);
+}
+th,td{
+  border:1px solid var(--spss-border);
+  padding:clamp(5px,.8vw,8px);
+  text-align:center;
+  overflow-wrap:anywhere;
+  background:var(--spss-bg);
+  color:var(--spss-text);
+}
+th{
+  background:var(--spss-head);
+  color:var(--spss-text);
+  font-weight:700;
+}
+td:first-child,.label{
+  background:var(--spss-label);
+  color:var(--spss-text);
+  text-align:left;
+}
+.cell{cursor:pointer;user-select:none;transition:.12s}.cell:hover{background:#e8eefc!important}
+.cell.selected{background:#fff0a6!important;color:#000!important;box-shadow:inset 0 0 0 3px #8a6500}
+.cell.correct{background:#c8f3d8!important;color:#000!important;box-shadow:inset 0 0 0 3px #137a45}
+.cell.wrong{background:#ffd1d6!important;color:#000!important;box-shadow:inset 0 0 0 3px #b42318}
+.scree{position:relative;max-width:720px;max-height:min(38vh,330px);margin:7px auto;border:1.5px solid var(--spss-border);border-radius:9px;background:var(--spss-bg);padding:5px;overflow:hidden;box-shadow:0 10px 26px rgba(0,0,0,.24)}
+.scree svg{display:block;width:100%;max-height:31vh}
+.spss-svg-bg{fill:var(--spss-bg)}
+.spss-svg-axis{stroke:var(--spss-text)}
+.spss-svg-text{fill:var(--spss-text)}
+.hotspot{position:absolute;left:34%;top:48%;width:13%;height:23%;border:2px dashed transparent;border-radius:50%;background:transparent;cursor:pointer}
+.hotspot.selected{border-color:#a8872e;background:rgba(168,135,46,.22)}.hotspot.correct{border-color:#2a9f71;background:rgba(42,159,113,.24)}
+.options{display:grid;gap:6px;margin-top:7px}
+.option{width:100%;min-height:40px;text-align:left;background:var(--panel2);color:var(--text);border:1px solid var(--line);font-weight:700}
+.option.correct{border-color:var(--good);background:rgba(70,214,154,.11)}.option.wrong{border-color:var(--bad);background:rgba(255,113,130,.1)}
+.feedback{margin-top:7px;padding:8px 9px;border-radius:9px;font-size:12px;font-weight:750}
+.feedback.good{color:var(--good);border:1px solid rgba(70,214,154,.3);background:rgba(70,214,154,.09)}
+.feedback.bad{color:#ffc0c8;border:1px solid rgba(255,113,130,.32);background:rgba(255,113,130,.09)}
+.explain-list{display:grid;gap:5px;margin-top:7px}.explain{padding:7px 8px;border-radius:8px;background:var(--panel2);color:var(--muted);font-size:11px}.explain strong{color:var(--text)}
+textarea{width:100%;min-height:105px;resize:none;border:1px solid var(--line);border-radius:10px;background:#070d17;color:var(--text);padding:9px}
+.counter{color:var(--muted);font-size:10px;text-align:right;margin-top:3px}
+.keywords{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}.keyword{padding:3px 6px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-size:9px}.keyword.hit{color:var(--good);border-color:rgba(70,214,154,.4)}
+.progress{height:7px;background:var(--panel3);border-radius:999px;overflow:hidden}.progress span{display:block;height:100%;background:linear-gradient(90deg,var(--accent2),var(--good))}
+.hidden{display:none!important}
+@media(max-height:720px){
+  .app{grid-template-rows:48px minmax(0,1fr) 54px}.viewport{padding:5px}
+  .head{padding:7px 9px 6px}.body{padding:6px 9px}.foot{padding:6px 7px}
+  .output-shell,.scree{max-height:34vh;margin:5px auto}.prompt{margin:5px 0;padding:6px 8px}
+  .options{gap:4px;margin-top:5px}.option{min-height:36px;padding:7px 9px}
+}
+@media(min-width:768px){
+  .viewport{padding:10px}.head{padding:12px 16px 9px}.body{padding:10px 16px}.foot{padding:9px 14px}
+  .stats{grid-template-columns:repeat(4,1fr)}.actions{grid-template-columns:repeat(3,1fr)}
+}
 </style>
 </head>
 <body>
-<header><div><strong>SPSS Exam Trainer</strong><span>Kenal pasti → Scan → Tafsir → Jawab sendiri</span></div></header>
-<main>
-<section id="home" class="page">
-<div class="card hero"><span class="badge green">BUKAN NOTA STATIK</span><h1>Trainer yang ajar mata kau membaca output SPSS</h1><p>Kau akan belajar cara kenal pasti table, medan mana perlu dilihat, bagaimana mula ayat, dan akhirnya jawab tanpa hint.</p><button onclick="go('learn')">Mula latihan sebenar</button></div>
-<div class="card"><h2>4 tahap pembelajaran</h2><div class="grid2">
-<div class="tile"><strong>1. Kenal table</strong><span class="muted">Nampak tajuk dan terus tahu soalan apa yang dijawab.</span></div>
-<div class="tile"><strong>2. Scan input penting</strong><span class="muted">Cari nilai yang relevan, abaikan nombor gangguan.</span></div>
-<div class="tile"><strong>3. Bina ayat</strong><span class="muted">Mulakan dengan struktur jawapan yang konsisten.</span></div>
-<div class="tile"><strong>4. Tanpa hint</strong><span class="muted">Jawab output penuh seperti exam sebenar.</span></div>
-</div></div>
-<div class="card"><h2>Formula jawapan universal</h2><div class="template">Berdasarkan jadual [NAMA TABLE], nilai [STATISTIK] ialah [NILAI]. Nilai ini menunjukkan [TAFSIRAN]. Oleh itu, [KESIMPULAN / TINDAKAN].</div></div>
-</section>
-
-<section id="learn" class="page hidden">
-<div class="card">
-<div class="toprow"><div><span class="badge">TAHAP 1–3</span><h2 style="margin-top:7px">Belajar satu table pada satu masa</h2></div><button class="secondary" onclick="go('home')">Menu</button></div>
-<div class="stepper" id="lessonTabs"></div>
-<div id="lesson"></div>
-</div>
-</section>
-
-<section id="practice" class="page hidden">
-<div class="card">
-<div class="toprow"><div><span class="badge green">TAHAP 4</span><h2 style="margin-top:7px">Hint semakin hilang</h2></div><button class="secondary" onclick="resetPractice()">Reset</button></div>
-<p class="muted">Setiap level mengurangkan bantuan sehingga kau perlu scan dan bina ayat sendiri.</p>
-<div class="row"><span class="badge" id="pLevel">LEVEL 1</span><b id="pScore">0/0</b></div><div class="progress"><span id="pBar"></span></div>
-<div id="practiceArea"></div><button id="nextBtn" class="full hidden" onclick="nextQ()">Soalan seterusnya</button>
-</div>
-</section>
-
-<section id="exam" class="page hidden">
-<div class="card">
-<div class="toprow"><div><span class="badge amber">EXAM MODE</span><h2 style="margin-top:7px">Output penuh tanpa highlight</h2></div><button class="secondary" onclick="resetExam()">Reset</button></div>
-<div class="notice"><b>Tugas:</b> Kenal pasti setiap table, scan nilai penting, kemudian tulis satu interpretasi lengkap.</div>
-<div id="examTables"></div>
-<h3>Jawapan kau</h3><textarea id="examAnswer" placeholder="Mulakan dengan: Berdasarkan jadual Reliability Statistics..."></textarea>
-<button class="full" onclick="markExam()">Semak struktur jawapan</button>
-<div id="examFeedback"></div>
-<details><summary>Skema jawapan cemerlang</summary><div class="template" id="model"></div></details>
-</div>
-</section>
-
-<section id="cheat" class="page hidden">
-<div class="card"><h2>Scan map 5 saat</h2>
-<div class="grid2">
-<div class="tile"><strong>Reliability Statistics</strong><span>Input: Cronbach’s Alpha → Output: tahap reliability.</span></div>
-<div class="tile"><strong>Item-Total Statistics</strong><span>Input: Corrected Item-Total Correlation + Alpha if Item Deleted → Output: item bermasalah.</span></div>
-<div class="tile"><strong>KMO and Bartlett</strong><span>Input: KMO + Sig. → Output: data sesuai untuk factor analysis atau tidak.</span></div>
-<div class="tile"><strong>Communalities</strong><span>Input: Extraction → Output: item kurang atau baik diterangkan faktor.</span></div>
-<div class="tile"><strong>Total Variance Explained</strong><span>Input: Eigenvalue + Cumulative % → Output: bilangan faktor dan jumlah variasi.</span></div>
-<div class="tile"><strong>Scree Plot</strong><span>Input: elbow → Output: sokongan bilangan faktor.</span></div>
-<div class="tile"><strong>Rotated Component Matrix</strong><span>Input: loading tertinggi + cross-loading → Output: item masuk faktor mana.</span></div>
-</div></div>
-</section>
-</main>
-<nav class="tabs">
-<button data-page="home" class="active" onclick="go('home')">Home</button>
-<button data-page="learn" onclick="go('learn')">Belajar</button>
-<button data-page="practice" onclick="go('practice')">Latihan</button>
-<button data-page="exam" onclick="go('exam')">Exam</button>
+<div class="app">
+<header class="topbar">
+  <div class="brand"><strong>SPSS Exam Trainer</strong><small>Jawab → semak → faham sebab → baru teruskan</small></div>
+  <button class="version" id="tableThemeButton" type="button" title="Tukar tema table">Table: Dim</button>
+</header>
+<main class="viewport"><section id="screen" class="screen"></section></main>
+<nav class="bottomnav">
+  <button class="navbtn active" data-route="home"><b>⌂</b>Home</button>
+  <button class="navbtn" data-route="learn"><b>◎</b>Belajar</button>
+  <button class="navbtn" data-route="practice"><b>◆</b>Latihan</button>
+  <button class="navbtn" data-route="exam"><b>✎</b>Exam</button>
 </nav>
+</div>
 <script>
-const SKEY='spssTrainer3';
-let st=JSON.parse(localStorage.getItem(SKEY)||'{"lesson":0,"q":0,"score":0,"answered":false}');
-function save(){localStorage.setItem(SKEY,JSON.stringify(st))}
-function go(id){document.querySelectorAll('.page').forEach(x=>x.classList.add('hidden'));document.getElementById(id).classList.remove('hidden');document.querySelectorAll('.tabs button').forEach(b=>b.classList.toggle('active',b.dataset.page===id));window.scrollTo({top:0});if(id==='practice')renderPractice()}
-function box(title,head,rows,note=''){return `<div class="spssbox"><div class="title">${title}</div><table>${head}${rows}</table>${note?`<div class="small" style="padding:6px 8px">${note}</div>`:''}</div>`}
-const L=[
-{short:'Reliability',title:'Reliability Statistics',question:'Soalan yang dijawab: Adakah instrumen konsisten?',html:box('Reliability Statistics','<tr><th>Cronbach\\'s Alpha</th><th>N of Items</th></tr>','<tr><td class="focus">.853</td><td>12</td></tr>'),inputs:['Cronbach’s Alpha = .853','N of Items = 12 (maklumat sokongan)'],ignore:'Tiada Sig., p-value, df atau loading dalam table ini.',start:"Berdasarkan jadual Reliability Statistics, nilai Cronbach's Alpha ialah .853 bagi 12 item.",meaning:'Nilai .853 menunjukkan kebolehpercayaan yang baik.',end:'Oleh itu, instrumen secara keseluruhannya adalah reliabel.'},
-{short:'Item-Total',title:'Item-Total Statistics',question:'Soalan yang dijawab: Item mana bermasalah?',html:box('Item-Total Statistics','<tr><th>Item</th><th>Corrected Item-Total Correlation</th><th>Alpha if Item Deleted</th></tr>','<tr><td>A1</td><td>.612</td><td>.841</td></tr><tr><td class="focus">A5</td><td class="focus">.254</td><td class="focus">.882</td></tr><tr><td>A6</td><td>.687</td><td>.839</td></tr>'),inputs:['Corrected Item-Total Correlation paling rendah','Banding Alpha if Item Deleted dengan alpha asal .853'],ignore:'Jangan tengok satu kolum sahaja.',start:'Berdasarkan jadual Item-Total Statistics, item A5 mempunyai Corrected Item-Total Correlation paling rendah, iaitu .254.',meaning:'Alpha meningkat daripada .853 kepada .882 jika A5 dibuang.',end:'Oleh itu, A5 perlu disemak dan boleh dipertimbangkan untuk digugurkan berdasarkan kandungan dan teori.'},
-{short:'KMO/Bartlett',title:"KMO and Bartlett's Test",question:'Soalan yang dijawab: Bolehkah factor analysis dijalankan?',html:box("KMO and Bartlett's Test",'<tr><th colspan="2"></th><th>Value</th></tr>','<tr><td colspan="2">Kaiser-Meyer-Olkin Measure of Sampling Adequacy.</td><td class="focus">.824</td></tr><tr><td rowspan="3">Bartlett\\'s Test of Sphericity</td><td class="label">Approx. Chi-Square</td><td>543.281</td></tr><tr><td class="label">df</td><td>120</td></tr><tr><td class="label">Sig.</td><td class="focus">.000</td></tr>'),inputs:['KMO = .824','Sig. = .000 → lapor p < .001'],ignore:'Approx. Chi-Square dan df biasanya bukan fokus utama jawapan asas.',start:'Berdasarkan jadual KMO and Bartlett’s Test, nilai KMO ialah .824 dan Bartlett’s Test adalah signifikan, p < .001.',meaning:'KMO sangat baik dan korelasi antara item mencukupi.',end:'Oleh itu, data sesuai untuk factor analysis.'},
-{short:'Communalities',title:'Communalities',question:'Soalan yang dijawab: Item mana kurang diterangkan oleh faktor?',html:box('Communalities','<tr><th>Item</th><th>Initial</th><th>Extraction</th></tr>','<tr><td>Q1</td><td>1.000</td><td>.721</td></tr><tr><td>Q2</td><td>1.000</td><td>.654</td></tr><tr><td class="focus">Q4</td><td>1.000</td><td class="focus">.298</td></tr><tr><td>Q5</td><td>1.000</td><td>.744</td></tr>'),inputs:['Kolum Extraction','Cari nilai paling rendah'],ignore:'Initial 1.000 bukan nilai yang perlu dihuraikan.',start:'Berdasarkan jadual Communalities, item Q4 mempunyai nilai Extraction paling rendah, iaitu .298.',meaning:'Q4 kurang diterangkan oleh faktor yang terbentuk.',end:'Oleh itu, Q4 perlu disemak bersama bukti lain.'},
-{short:'Variance',title:'Total Variance Explained',question:'Soalan yang dijawab: Berapa faktor dan berapa % variasi diterangkan?',html:box('Total Variance Explained','<tr><th>Component</th><th>Eigenvalue</th><th>% Variance</th><th>Cumulative %</th></tr>','<tr><td>1</td><td class="focus">4.588</td><td>38.24</td><td>38.24</td></tr><tr><td>2</td><td class="focus">2.236</td><td>18.63</td><td>56.87</td></tr><tr><td>3</td><td class="focus">1.370</td><td>11.42</td><td class="focus">68.29</td></tr><tr><td>4</td><td>.811</td><td>6.76</td><td>75.05</td></tr>'),inputs:['Bilangan eigenvalue > 1','Cumulative % pada faktor terakhir yang dikekalkan'],ignore:'Jangan ambil Cumulative % komponen 4 kerana eigenvalue .811.',start:'Berdasarkan jadual Total Variance Explained, tiga komponen mempunyai eigenvalue melebihi 1.',meaning:'Ketiga-tiga faktor menerangkan 68.29% daripada jumlah variasi.',end:'Oleh itu, penyelesaian tiga faktor adalah memadai berdasarkan kriteria ini.'},
-{short:'Scree Plot',title:'Scree Plot',question:'Soalan yang dijawab: Adakah graf menyokong bilangan faktor?',html:`<svg viewBox="0 0 560 300" style="width:100%;border:1px solid var(--line);background:#fff"><text x="235" y="24" font-family="Arial" font-weight="700">Scree Plot</text><line x1="58" y1="255" x2="525" y2="255" stroke="#222"/><line x1="58" y1="255" x2="58" y2="42" stroke="#222"/><polyline points="95,60 155,135 215,195 275,230 335,240 395,245 455,249" fill="none" stroke="#2b5797" stroke-width="3"/><circle cx="95" cy="60" r="5"/><circle cx="155" cy="135" r="5"/><circle cx="215" cy="195" r="5"/><circle cx="275" cy="230" r="5"/><line x1="215" y1="45" x2="215" y2="255" stroke="#b42318" stroke-dasharray="5 5"/><text x="225" y="58" font-family="Arial" font-size="12" fill="#b42318">elbow sekitar 3</text></svg>`,inputs:['Cari elbow','Lihat bila graf mula mendatar'],ignore:'Jangan tentukan bilangan faktor melalui titik paling tinggi sahaja.',start:'Berdasarkan scree plot, titik elbow berlaku sekitar komponen ketiga.',meaning:'Selepas komponen ketiga, graf mula mendatar.',end:'Oleh itu, scree plot menyokong pengekalan tiga faktor.'},
-{short:'Rotated Matrix',title:'Rotated Component Matrix',question:'Soalan yang dijawab: Item masuk faktor mana?',html:box('Rotated Component Matrixᵃ','<tr><th>Item</th><th>Component 1</th><th>Component 2</th><th>Component 3</th></tr>','<tr><td>Q1</td><td class="focus">.821</td><td>.212</td><td>.105</td></tr><tr><td>Q2</td><td class="focus">.798</td><td>.244</td><td>.122</td></tr><tr><td>Q3</td><td>.190</td><td class="focus">.744</td><td>.208</td></tr><tr><td class="focus">Q4</td><td class="focus">.421</td><td class="focus">.466</td><td>.130</td></tr><tr><td>Q5</td><td>.105</td><td>.172</td><td class="focus">.831</td></tr>'),inputs:['Loading tertinggi setiap item','Cari dua loading yang hampir sama'],ignore:'Jangan hanya sebut loading tertinggi tanpa semak cross-loading.',start:'Berdasarkan jadual Rotated Component Matrix, Q1 dan Q2 memuat tinggi pada Faktor 1, Q3 pada Faktor 2, dan Q5 pada Faktor 3.',meaning:'Q4 menunjukkan cross-loading pada Faktor 1 (.421) dan Faktor 2 (.466).',end:'Oleh itu, Q4 perlu disemak dari segi kandungan dan kejelasan konstruk.'}
-];
-function tabs(){document.getElementById('lessonTabs').innerHTML=L.map((x,i)=>`<button class="${i===st.lesson?'active':''}" onclick="openL(${i})">${i+1}. ${x.short}</button>`).join('')}
-function openL(i){st.lesson=i;save();tabs();const x=L[i];document.getElementById('lesson').innerHTML=`<span class="badge">${i+1}/7</span><h2 style="margin-top:8px">${x.title}</h2><div class="notice"><b>${x.question}</b></div>${x.html}<h3>Cara kenal pasti</h3><div class="scan"><b>1</b><div><strong>Lihat tajuk table</strong><br><span class="muted">Tajuk memberitahu jenis keputusan yang sedang diuji.</span></div></div><div class="scan"><b>2</b><div><strong>Scan input penting</strong><br>${x.inputs.map(v=>'• '+v).join('<br>')}</div></div><div class="scan"><b>3</b><div><strong>Abaikan gangguan</strong><br><span class="muted">${x.ignore}</span></div></div><h3>Bina ayat langkah demi langkah</h3><div class="builder"><div class="builder-row"><strong>Ayat 1 — Bukti</strong><p>${x.start}</p></div><div class="builder-row"><strong>Ayat 2 — Maksud</strong><p>${x.meaning}</p></div><div class="builder-row"><strong>Ayat 3 — Kesimpulan</strong><p>${x.end}</p></div></div><div class="template">${x.start} ${x.meaning} ${x.end}</div><div class="row" style="margin-top:12px"><button class="secondary" ${i===0?'disabled':''} onclick="openL(${i-1})">← Sebelum</button><button onclick="${i<L.length-1?`openL(${i+1})`:`go('practice')`}">${i<L.length-1?'Seterusnya →':'Mula latihan →'}</button></div>`}
-tabs();openL(st.lesson);
+"use strict";
+const DATA={"lessons":[{"id":"reliability","short":"Reliability","title":"Reliability Statistics","question":"Apakah soalan utama yang dijawab oleh jadual ini?","identifyOptions":["Adakah instrumen mempunyai kebolehpercayaan yang baik?","Adakah data sesuai untuk factor analysis?","Item masuk ke faktor yang mana?"],"identifyAnswer":0,"task":"Tekan nilai utama yang digunakan untuk menilai kebolehpercayaan.","requiredCells":["alpha"],"scanGuide":["Cari baris atau kolum “Cronbach’s Alpha”.","N of Items ialah maklumat sokongan, bukan keputusan utama.","Jadual ini tidak menggunakan Sig. atau p-value."],"openings":["Berdasarkan jadual Reliability Statistics, nilai Cronbach’s Alpha ialah .853 bagi 12 item.","Berdasarkan jadual KMO, nilai alpha ialah .853.","Jadual ini membuktikan semua item adalah sempurna."],"openingAnswer":0,"keywords":["reliability",".853","baik","reliabel"],"model":"Berdasarkan jadual Reliability Statistics, nilai Cronbach’s Alpha ialah .853 bagi 12 item. Nilai ini menunjukkan instrumen mempunyai kebolehpercayaan yang baik. Oleh itu, instrumen secara keseluruhannya adalah reliabel.","output":{"type":"table","caption":"Reliability Statistics","headers":["Cronbach’s Alpha","N of Items"],"rows":[[{"id":"alpha","text":".853"},{"id":"items","text":"12"}]]},"identifyReasons":["Betul kerana Reliability Statistics mengandungi Cronbach’s Alpha, iaitu ukuran konsistensi dalaman instrumen.","Salah kerana kesesuaian factor analysis dinilai melalui KMO dan Bartlett, bukan Reliability Statistics.","Salah kerana item masuk faktor mana ditentukan melalui Rotated Component Matrix."],"openingReasons":["Betul: ayat bermula dengan nama jadual, statistik, nilai dan bilangan item.","Salah kerana KMO bukan nama jadual ini dan alpha bukan statistik KMO.","Salah kerana alpha tinggi tidak membuktikan setiap item sempurna; ia hanya menunjukkan konsistensi dalaman keseluruhan."],"cellInfo":{"alpha":{"label":"Cronbach’s Alpha .853","reason":"Ini ialah statistik utama yang menilai reliability."},"items":{"label":"N of Items 12","reason":"Ini hanya bilangan item, bukan tahap reliability."}}},{"id":"itemtotal","short":"Item-Total","title":"Item-Total Statistics","question":"Apakah kegunaan utama jadual ini?","identifyOptions":["Mengenal pasti item yang berpotensi bermasalah.","Menentukan bilangan faktor sahaja.","Menentukan tahap KMO."],"identifyAnswer":0,"task":"Alpha asal ialah .853. Tekan dua nilai yang menunjukkan A5 perlu diberi perhatian.","requiredCells":["a5corr","a5del"],"scanGuide":["Cari Corrected Item-Total Correlation yang rendah.","Bandingkan Alpha if Item Deleted dengan alpha asal.","Jangan buang item secara automatik tanpa melihat kandungan dan teori."],"openings":["Berdasarkan jadual Item-Total Statistics, A5 mempunyai Corrected Item-Total Correlation paling rendah, iaitu .254.","Berdasarkan jadual Reliability Statistics, KMO A5 ialah .254.","A5 mesti dibuang kerana nombornya paling kecil."],"openingAnswer":0,"keywords":["a5",".254",".882","semak"],"model":"Berdasarkan jadual Item-Total Statistics, A5 mempunyai Corrected Item-Total Correlation paling rendah, iaitu .254. Alpha meningkat daripada .853 kepada .882 jika A5 dibuang. Oleh itu, A5 perlu disemak dan boleh dipertimbangkan untuk digugurkan berdasarkan kandungan dan teori.","context":"Alpha asal = .853","output":{"type":"table","caption":"Item-Total Statistics","headers":["Item","Corrected Item-Total Correlation","Cronbach’s Alpha if Item Deleted"],"rows":[[{"text":"A1"},{"id":"a1corr","text":".612"},{"id":"a1del","text":".841"}],[{"text":"A5"},{"id":"a5corr","text":".254"},{"id":"a5del","text":".882"}],[{"text":"A6"},{"id":"a6corr","text":".687"},{"id":"a6del","text":".839"}]]},"identifyReasons":["Betul kerana Item-Total Statistics membandingkan prestasi setiap item dengan skor keseluruhan dan perubahan alpha jika item dibuang.","Salah kerana bilangan faktor ditentukan melalui Total Variance Explained dan Scree Plot.","Salah kerana KMO berada dalam jadual KMO and Bartlett’s Test."],"openingReasons":["Betul: ayat mengenal pasti item, kolum penting dan nilai sebenar.","Salah kerana jadual ini ialah Item-Total Statistics, bukannya Reliability Statistics, dan .254 bukan nilai KMO.","Salah kerana item tidak boleh dibuang hanya kerana satu nilai kecil; alpha if deleted, kandungan dan teori juga perlu dipertimbangkan."],"cellInfo":{"a1corr":{"label":"A1 correlation .612","reason":"Nilai ini memadai dan bukan yang paling rendah."},"a1del":{"label":"A1 alpha if deleted .841","reason":"Alpha menurun daripada .853, jadi A1 bukan calon utama."},"a5corr":{"label":"A5 correlation .254","reason":"Nilai ini rendah dan menunjukkan A5 kurang selari dengan skor keseluruhan."},"a5del":{"label":"A5 alpha if deleted .882","reason":"Alpha meningkat daripada .853 kepada .882 jika A5 dibuang."},"a6corr":{"label":"A6 correlation .687","reason":"Nilai ini baik dan bukan yang paling rendah."},"a6del":{"label":"A6 alpha if deleted .839","reason":"Alpha menurun, jadi A6 bukan calon utama."}}},{"id":"kmo","short":"KMO/Bartlett","title":"KMO and Bartlett’s Test","question":"Apakah keputusan utama yang hendak dibuat daripada jadual ini?","identifyOptions":["Sama ada data sesuai untuk factor analysis.","Sama ada instrumen reliabel.","Item masuk ke faktor yang mana."],"identifyAnswer":0,"task":"Tekan dua nilai utama untuk menentukan kesesuaian factor analysis.","requiredCells":["kmo","sig"],"scanGuide":["KMO menilai kecukupan data.","Sig. Bartlett mesti kurang daripada .05.","Sig. .000 dalam SPSS dilaporkan sebagai p < .001, bukan p = 0."],"openings":["Berdasarkan jadual KMO and Bartlett’s Test, nilai KMO ialah .824 dan Bartlett’s Test adalah signifikan, p < .001.","Berdasarkan jadual Reliability, nilai p ialah kosong.","Chi-square mesti dihuraikan dahulu sebelum KMO."],"openingAnswer":0,"keywords":[".824","p < .001","sesuai","factor analysis"],"model":"Berdasarkan jadual KMO and Bartlett’s Test, nilai KMO ialah .824 dan Bartlett’s Test adalah signifikan, p < .001. Nilai KMO menunjukkan kecukupan data yang sangat baik dan korelasi antara item adalah mencukupi. Oleh itu, data sesuai untuk menjalankan factor analysis.","output":{"type":"kmo","caption":"KMO and Bartlett’s Test","rows":[{"label":"Kaiser-Meyer-Olkin Measure of Sampling Adequacy","id":"kmo","text":".824"},{"label":"Bartlett’s Test — Approx. Chi-Square","id":"chi","text":"543.281"},{"label":"Bartlett’s Test — df","id":"df","text":"120"},{"label":"Bartlett’s Test — Sig.","id":"sig","text":".000"}]},"identifyReasons":["Betul kerana KMO dan Sig. Bartlett digunakan untuk menentukan sama ada data sesuai untuk factor analysis.","Salah kerana reliability dinilai dengan Cronbach’s Alpha.","Salah kerana keahlian item dalam faktor dibaca melalui factor loading dalam Rotated Component Matrix."],"openingReasons":["Betul: ayat menyatakan KMO dan menulis Sig. .000 dengan betul sebagai p < .001.","Salah kerana jadual ini bukan Reliability Statistics dan nilai p tidak dianggap kosong.","Salah kerana keputusan asas bermula dengan KMO dan Sig.; Chi-Square dan df bukan fokus utama untuk jawapan ringkas."],"cellInfo":{"kmo":{"label":"KMO .824","reason":"KMO menilai kecukupan data untuk factor analysis."},"chi":{"label":"Approx. Chi-Square 543.281","reason":"Nilai ini sebahagian daripada Bartlett, tetapi bukan input utama jawapan asas."},"df":{"label":"df 120","reason":"df bukan nilai keputusan utama untuk menentukan kesesuaian factor analysis."},"sig":{"label":"Sig. .000","reason":"Nilai ini menunjukkan Bartlett signifikan dan perlu dilapor sebagai p < .001."}}},{"id":"communalities","short":"Communalities","title":"Communalities","question":"Apakah yang perlu dicari dalam jadual Communalities?","identifyOptions":["Item yang kurang diterangkan oleh faktor.","Nilai Cronbach’s Alpha.","Bilangan responden."],"identifyAnswer":0,"task":"Tekan nilai Extraction yang paling perlu diberi perhatian.","requiredCells":["q4ext"],"scanGuide":["Fokus pada kolum Extraction.","Cari nilai paling rendah.","Initial 1.000 biasanya bukan fokus interpretasi asas."],"openings":["Berdasarkan jadual Communalities, Q4 mempunyai nilai Extraction paling rendah, iaitu .298.","Berdasarkan jadual KMO, nilai Q4 ialah 1.000.","Semua item diterangkan dengan sempurna."],"openingAnswer":0,"keywords":["q4",".298","kurang","faktor"],"model":"Berdasarkan jadual Communalities, Q4 mempunyai nilai Extraction paling rendah, iaitu .298. Ini menunjukkan Q4 kurang diterangkan oleh faktor yang terbentuk. Oleh itu, Q4 perlu disemak bersama bukti daripada jadual lain.","output":{"type":"table","caption":"Communalities","headers":["Item","Initial","Extraction"],"rows":[[{"text":"Q1"},{"text":"1.000"},{"id":"q1ext","text":".721"}],[{"text":"Q2"},{"text":"1.000"},{"id":"q2ext","text":".654"}],[{"text":"Q4"},{"text":"1.000"},{"id":"q4ext","text":".298"}],[{"text":"Q5"},{"text":"1.000"},{"id":"q5ext","text":".744"}]]},"identifyReasons":["Betul kerana nilai Extraction menunjukkan sejauh mana setiap item diterangkan oleh faktor yang terbentuk.","Salah kerana Cronbach’s Alpha berada dalam Reliability Statistics.","Salah kerana bilangan responden tidak ditentukan melalui Communalities."],"openingReasons":["Betul: ayat fokus pada item dan nilai Extraction paling rendah.","Salah kerana 1.000 ialah nilai Initial, bukan nilai yang menunjukkan sejauh mana item diterangkan selepas extraction.","Salah kerana nilai Extraction berbeza dan Q4 jelas paling rendah."],"cellInfo":{"q1ext":{"label":"Q1 Extraction .721","reason":"Nilai ini tinggi dan menunjukkan Q1 diterangkan dengan baik."},"q2ext":{"label":"Q2 Extraction .654","reason":"Nilai ini bukan yang paling rendah."},"q4ext":{"label":"Q4 Extraction .298","reason":"Ini nilai paling rendah dan menunjukkan Q4 kurang diterangkan oleh faktor."},"q5ext":{"label":"Q5 Extraction .744","reason":"Nilai ini tinggi dan bukan item bermasalah utama."}}},{"id":"variance","short":"Variance","title":"Total Variance Explained","question":"Apakah dua keputusan yang diperoleh daripada jadual ini?","identifyOptions":["Bilangan faktor dan peratus variasi yang diterangkan.","Reliability dan p-value.","Item bermasalah dan KMO."],"identifyAnswer":0,"task":"Tekan eigenvalue yang melebihi 1 dan Cumulative % bagi faktor terakhir yang dikekalkan.","requiredCells":["eig1","eig2","eig3","cum3"],"scanGuide":["Kira komponen yang mempunyai eigenvalue melebihi 1.","Ambil Cumulative % pada komponen terakhir yang dikekalkan.","Jangan ambil cumulative untuk komponen yang eigenvalue kurang daripada 1."],"openings":["Berdasarkan jadual Total Variance Explained, tiga komponen mempunyai eigenvalue melebihi 1.","Berdasarkan jadual Reliability, terdapat empat faktor.","Cumulative 75.05% mesti digunakan kerana nilainya paling tinggi."],"openingAnswer":0,"keywords":["tiga","68.29","eigenvalue","variasi"],"model":"Berdasarkan jadual Total Variance Explained, tiga komponen mempunyai eigenvalue melebihi 1. Ketiga-tiga faktor menerangkan 68.29% daripada jumlah variasi. Oleh itu, penyelesaian tiga faktor adalah memadai berdasarkan kriteria eigenvalue.","output":{"type":"table","caption":"Total Variance Explained","headers":["Component","Initial Eigenvalues — Total","% of Variance","Cumulative %"],"rows":[[{"text":"1"},{"id":"eig1","text":"4.588"},{"text":"38.24"},{"text":"38.24"}],[{"text":"2"},{"id":"eig2","text":"2.236"},{"text":"18.63"},{"text":"56.87"}],[{"text":"3"},{"id":"eig3","text":"1.370"},{"text":"11.42"},{"id":"cum3","text":"68.29"}],[{"text":"4"},{"id":"eig4","text":".811"},{"text":"6.76"},{"text":"75.05"}]]},"identifyReasons":["Betul kerana eigenvalue menunjukkan bilangan faktor dan Cumulative % menunjukkan jumlah variasi yang diterangkan.","Salah kerana reliability dan p-value datang daripada jadual lain.","Salah kerana Item-Total dan KMO menjawab soalan yang berbeza."],"openingReasons":["Betul: ayat pertama terus menyatakan bilangan komponen yang memenuhi eigenvalue > 1.","Salah kerana Reliability Statistics tidak menentukan faktor.","Salah kerana 75.05% termasuk komponen keempat yang eigenvalue-nya .811, iaitu kurang daripada 1."],"cellInfo":{"eig1":{"label":"Komponen 1 eigenvalue 4.588","reason":"Melebihi 1, jadi faktor ini dikekalkan."},"eig2":{"label":"Komponen 2 eigenvalue 2.236","reason":"Melebihi 1, jadi faktor ini dikekalkan."},"eig3":{"label":"Komponen 3 eigenvalue 1.370","reason":"Melebihi 1, jadi faktor ini dikekalkan."},"cum3":{"label":"Cumulative 68.29%","reason":"Ini jumlah variasi selepas faktor ketiga, iaitu faktor terakhir yang dikekalkan."},"eig4":{"label":"Komponen 4 eigenvalue .811","reason":"Kurang daripada 1, jadi komponen ini tidak dikekalkan."}}},{"id":"scree","short":"Scree Plot","title":"Scree Plot","question":"Bahagian manakah yang digunakan untuk menyokong bilangan faktor?","identifyOptions":["Titik elbow sebelum graf mula mendatar.","Titik paling rendah sahaja.","Warna garisan graf."],"identifyAnswer":0,"task":"Tekan kawasan elbow pada graf.","requiredCells":["elbow"],"scanGuide":["Cari perubahan daripada cerun curam kepada bahagian mendatar.","Bilangan faktor biasanya diambil sebelum bahagian mendatar.","Bandingkan keputusan visual dengan eigenvalue dan teori."],"openings":["Berdasarkan scree plot, titik elbow berlaku sekitar komponen ketiga.","Berdasarkan Reliability Statistics, graf mempunyai tiga warna.","Scree plot membuktikan semua item reliabel."],"openingAnswer":0,"keywords":["elbow","ketiga","mendatar","tiga faktor"],"model":"Berdasarkan scree plot, titik elbow berlaku sekitar komponen ketiga. Selepas komponen ketiga, graf mula menjadi lebih mendatar. Oleh itu, scree plot menyokong pengekalan tiga faktor.","output":{"type":"scree","caption":"Scree Plot"},"identifyReasons":["Betul kerana elbow menandakan titik sebelum graf mula mendatar dan membantu menentukan bilangan faktor.","Salah kerana titik paling rendah hanyalah bahagian ekor graf, bukan asas utama menentukan faktor.","Salah kerana warna garisan tidak mempunyai makna statistik."],"openingReasons":["Betul: ayat mengenal pasti elbow dan kedudukan komponen.","Salah kerana scree plot bukan Reliability Statistics dan warna tidak menentukan faktor.","Salah kerana scree plot menyokong bilangan faktor, bukan menguji reliability item."],"cellInfo":{"elbow":{"label":"Elbow sekitar komponen 3","reason":"Di sinilah graf berubah daripada curam kepada lebih mendatar."}}},{"id":"rotated","short":"Rotated Matrix","title":"Rotated Component Matrix","question":"Apakah kegunaan utama jadual ini?","identifyOptions":["Menentukan item memuat pada faktor mana dan mengesan cross-loading.","Menentukan nilai KMO.","Mengira jumlah responden."],"identifyAnswer":0,"task":"Tekan loading utama setiap item. Untuk Q4, tekan kedua-dua loading yang menunjukkan cross-loading.","requiredCells":["q1f1","q2f1","q3f2","q4f1","q4f2","q5f3"],"scanGuide":["Cari loading tertinggi pada setiap baris.","Jika dua loading hampir sama dan memadai, semak cross-loading.","Gabungkan pola loading dengan makna konstruk."],"openings":["Berdasarkan jadual Rotated Component Matrix, Q1 dan Q2 memuat tinggi pada Faktor 1, Q3 pada Faktor 2, dan Q5 pada Faktor 3.","Berdasarkan jadual KMO, semua item masuk Faktor 1.","Pilih sahaja nilai terbesar dalam seluruh jadual."],"openingAnswer":0,"keywords":["q1","q2","q3","q5","cross-loading","q4"],"model":"Berdasarkan jadual Rotated Component Matrix, Q1 dan Q2 memuat tinggi pada Faktor 1, Q3 pada Faktor 2, dan Q5 pada Faktor 3. Q4 menunjukkan cross-loading pada Faktor 1 (.421) dan Faktor 2 (.466). Oleh itu, Q4 perlu disemak dari segi kandungan dan kejelasan konstruk.","output":{"type":"table","caption":"Rotated Component Matrix","headers":["Item","Component 1","Component 2","Component 3"],"rows":[[{"text":"Q1"},{"id":"q1f1","text":".821"},{"text":".212"},{"text":".105"}],[{"text":"Q2"},{"id":"q2f1","text":".798"},{"text":".244"},{"text":".122"}],[{"text":"Q3"},{"text":".190"},{"id":"q3f2","text":".744"},{"text":".208"}],[{"text":"Q4"},{"id":"q4f1","text":".421"},{"id":"q4f2","text":".466"},{"text":".130"}],[{"text":"Q5"},{"text":".105"},{"text":".172"},{"id":"q5f3","text":".831"}]]},"identifyReasons":["Betul kerana factor loading menunjukkan item memuat pada faktor mana dan dua loading hampir sama boleh menunjukkan cross-loading.","Salah kerana nilai KMO dibaca dalam KMO and Bartlett’s Test.","Salah kerana jumlah responden tidak ditentukan melalui Rotated Component Matrix."],"openingReasons":["Betul: ayat menyusun item mengikut loading tertinggi sebelum membincangkan cross-loading.","Salah kerana jadual ini bukan KMO dan item tidak semuanya memuat pada Faktor 1.","Salah kerana loading mesti dibaca baris demi baris, bukan memilih satu nilai terbesar dalam seluruh jadual."],"cellInfo":{"q1f1":{"label":"Q1 → Faktor 1 (.821)","reason":"Ini loading tertinggi bagi Q1."},"q2f1":{"label":"Q2 → Faktor 1 (.798)","reason":"Ini loading tertinggi bagi Q2."},"q3f2":{"label":"Q3 → Faktor 2 (.744)","reason":"Ini loading tertinggi bagi Q3."},"q4f1":{"label":"Q4 pada Faktor 1 (.421)","reason":"Nilai ini perlu dipilih bersama .466 kerana kedua-duanya hampir sama."},"q4f2":{"label":"Q4 pada Faktor 2 (.466)","reason":"Nilai ini perlu dipilih bersama .421 dan menunjukkan cross-loading."},"q5f3":{"label":"Q5 → Faktor 3 (.831)","reason":"Ini loading tertinggi bagi Q5."}}}],"practice":[{"title":"Reliability — Kenal table","prompt":"Jadual manakah menjawab “Adakah instrumen konsisten?”","options":["Reliability Statistics","Communalities","Rotated Component Matrix"],"answer":0,"explanation":"Reliability Statistics mengandungi Cronbach’s Alpha.","optionReasons":["Betul. Reliability Statistics mengandungi Cronbach’s Alpha.","Salah kerana “Communalities” tidak menjawab konsep yang diuji. Reliability Statistics mengandungi Cronbach’s Alpha.","Salah kerana “Rotated Component Matrix” tidak menjawab konsep yang diuji. Reliability Statistics mengandungi Cronbach’s Alpha."]},{"title":"Reliability — Kategori","prompt":"Cronbach’s Alpha = .853. Apakah tafsiran paling tepat?","options":["Kebolehpercayaan baik","Data tidak sesuai untuk factor analysis","Item mesti dibuang"],"answer":0,"explanation":".853 lazimnya ditafsirkan sebagai kebolehpercayaan yang baik.","optionReasons":["Betul. .853 lazimnya ditafsirkan sebagai kebolehpercayaan yang baik.","Salah kerana “Data tidak sesuai untuk factor analysis” tidak menjawab konsep yang diuji. .853 lazimnya ditafsirkan sebagai kebolehpercayaan yang baik.","Salah kerana “Item mesti dibuang” tidak menjawab konsep yang diuji. .853 lazimnya ditafsirkan sebagai kebolehpercayaan yang baik."]},{"title":"Reliability — Perangkap","prompt":"Cronbach’s Alpha = .971. Apakah jawapan paling matang?","options":["Sangat tinggi, tetapi item mungkin terlalu berulang","Sempurna dan tidak perlu semakan","KMO pasti tinggi"],"answer":0,"explanation":"Alpha melebihi .95 boleh menandakan redundancy, bukan semestinya kesempurnaan.","optionReasons":["Betul. Alpha melebihi .95 boleh menandakan redundancy, bukan semestinya kesempurnaan.","Salah kerana “Sempurna dan tidak perlu semakan” tidak menjawab konsep yang diuji. Alpha melebihi .95 boleh menandakan redundancy, bukan semestinya kesempurnaan.","Salah kerana “KMO pasti tinggi” tidak menjawab konsep yang diuji. Alpha melebihi .95 boleh menandakan redundancy, bukan semestinya kesempurnaan."]},{"title":"Item-Total — Input","prompt":"Dua input utama dalam Item-Total Statistics ialah...","options":["Corrected Item-Total Correlation dan Alpha if Item Deleted","KMO dan Sig.","Eigenvalue dan Cumulative %"],"answer":0,"explanation":"Kedua-dua kolum perlu dibandingkan dengan alpha asal.","optionReasons":["Betul. Kedua-dua kolum perlu dibandingkan dengan alpha asal.","Salah kerana “KMO dan Sig.” tidak menjawab konsep yang diuji. Kedua-dua kolum perlu dibandingkan dengan alpha asal.","Salah kerana “Eigenvalue dan Cumulative %” tidak menjawab konsep yang diuji. Kedua-dua kolum perlu dibandingkan dengan alpha asal."]},{"title":"Item-Total — Item lemah","prompt":"Alpha asal .853. A5 correlation .254 dan alpha if deleted .882. Rumusan?","options":["A5 perlu disemak dan dipertimbangkan berdasarkan teori","A5 mesti dibuang serta-merta","A5 ialah item terbaik"],"answer":0,"explanation":"Bukti menunjukkan A5 lemah, tetapi keputusan akhir tetap mempertimbangkan kandungan dan teori.","optionReasons":["Betul. Bukti menunjukkan A5 lemah, tetapi keputusan akhir tetap mempertimbangkan kandungan dan teori.","Salah kerana “A5 mesti dibuang serta-merta” tidak menjawab konsep yang diuji. Bukti menunjukkan A5 lemah, tetapi keputusan akhir tetap mempertimbangkan kandungan dan teori.","Salah kerana “A5 ialah item terbaik” tidak menjawab konsep yang diuji. Bukti menunjukkan A5 lemah, tetapi keputusan akhir tetap mempertimbangkan kandungan dan teori."]},{"title":"Item-Total — Perangkap","prompt":"Alpha asal .742. B5 correlation .221 tetapi alpha if deleted .731. Apakah tindakan terbaik?","options":["Semak B5, tetapi jangan buang automatik kerana alpha menurun","Buang B5 kerana correlation rendah","Semua item gagal"],"answer":0,"explanation":"Correlation rendah perlu disemak, tetapi membuang B5 tidak meningkatkan reliability.","optionReasons":["Betul. Correlation rendah perlu disemak, tetapi membuang B5 tidak meningkatkan reliability.","Salah kerana “Buang B5 kerana correlation rendah” tidak menjawab konsep yang diuji. Correlation rendah perlu disemak, tetapi membuang B5 tidak meningkatkan reliability.","Salah kerana “Semua item gagal” tidak menjawab konsep yang diuji. Correlation rendah perlu disemak, tetapi membuang B5 tidak meningkatkan reliability."]},{"title":"KMO/Bartlett — Input","prompt":"Dalam KMO and Bartlett’s Test, nombor utama ialah...","options":["KMO dan Sig.","Chi-Square dan df sahaja","Alpha dan N of Items"],"answer":0,"explanation":"KMO menilai kecukupan data dan Sig. menguji Bartlett.","optionReasons":["Betul. KMO menilai kecukupan data dan Sig. menguji Bartlett.","Salah kerana “Chi-Square dan df sahaja” tidak menjawab konsep yang diuji. KMO menilai kecukupan data dan Sig. menguji Bartlett.","Salah kerana “Alpha dan N of Items” tidak menjawab konsep yang diuji. KMO menilai kecukupan data dan Sig. menguji Bartlett."]},{"title":"KMO/Bartlett — p-value","prompt":"SPSS memaparkan Sig. = .000. Cara laporan yang betul?","options":["p < .001","p = 0","p > .05"],"answer":0,"explanation":"SPSS membundarkan nilai; p tidak dilaporkan sebagai sifar.","optionReasons":["Betul. SPSS membundarkan nilai; p tidak dilaporkan sebagai sifar.","Salah kerana “p = 0” tidak menjawab konsep yang diuji. SPSS membundarkan nilai; p tidak dilaporkan sebagai sifar.","Salah kerana “p > .05” tidak menjawab konsep yang diuji. SPSS membundarkan nilai; p tidak dilaporkan sebagai sifar."]},{"title":"KMO/Bartlett — Konflik","prompt":"KMO = .487 tetapi Bartlett p < .001. Boleh terus factor analysis?","options":["Tidak, KMO masih di bawah .50","Ya, kerana Bartlett sahaja sudah cukup","Ya, kerana p sangat kecil"],"answer":0,"explanation":"Bartlett signifikan tidak mengatasi masalah KMO yang tidak memadai.","optionReasons":["Betul. Bartlett signifikan tidak mengatasi masalah KMO yang tidak memadai.","Salah kerana “Ya, kerana Bartlett sahaja sudah cukup” tidak menjawab konsep yang diuji. Bartlett signifikan tidak mengatasi masalah KMO yang tidak memadai.","Salah kerana “Ya, kerana p sangat kecil” tidak menjawab konsep yang diuji. Bartlett signifikan tidak mengatasi masalah KMO yang tidak memadai."]},{"title":"Communalities — Input","prompt":"Kolum utama untuk interpretasi asas ialah...","options":["Extraction","Initial sahaja","N of Items"],"answer":0,"explanation":"Extraction menunjukkan sejauh mana faktor menerangkan setiap item.","optionReasons":["Betul. Extraction menunjukkan sejauh mana faktor menerangkan setiap item.","Salah kerana “Initial sahaja” tidak menjawab konsep yang diuji. Extraction menunjukkan sejauh mana faktor menerangkan setiap item.","Salah kerana “N of Items” tidak menjawab konsep yang diuji. Extraction menunjukkan sejauh mana faktor menerangkan setiap item."]},{"title":"Communalities — Cari item","prompt":"Q1=.721, Q2=.654, Q4=.298, Q5=.744. Item mana paling perlu diberi perhatian?","options":["Q4","Q1","Q5"],"answer":0,"explanation":"Q4 mempunyai nilai Extraction paling rendah.","optionReasons":["Betul. Q4 mempunyai nilai Extraction paling rendah.","Salah kerana “Q1” tidak menjawab konsep yang diuji. Q4 mempunyai nilai Extraction paling rendah.","Salah kerana “Q5” tidak menjawab konsep yang diuji. Q4 mempunyai nilai Extraction paling rendah."]},{"title":"Communalities — Tindakan","prompt":"Communality Q4 = .298. Apakah kesimpulan matang?","options":["Q4 kurang diterangkan dan perlu disemak bersama bukti lain","Q4 mesti dibuang terus","Q4 mempunyai reliability .298"],"answer":0,"explanation":"Communality rendah ialah satu bukti, bukan keputusan automatik.","optionReasons":["Betul. Communality rendah ialah satu bukti, bukan keputusan automatik.","Salah kerana “Q4 mesti dibuang terus” tidak menjawab konsep yang diuji. Communality rendah ialah satu bukti, bukan keputusan automatik.","Salah kerana “Q4 mempunyai reliability .298” tidak menjawab konsep yang diuji. Communality rendah ialah satu bukti, bukan keputusan automatik."]},{"title":"Variance — Bilangan faktor","prompt":"Eigenvalue = 4.5, 2.2, 1.3, .81. Berapa faktor dikekalkan dengan kriteria >1?","options":["2","3","4"],"answer":1,"explanation":"Tiga eigenvalue pertama sahaja melebihi 1.","optionReasons":["Salah kerana “2” tidak menjawab konsep yang diuji. Tiga eigenvalue pertama sahaja melebihi 1.","Betul. Tiga eigenvalue pertama sahaja melebihi 1.","Salah kerana “4” tidak menjawab konsep yang diuji. Tiga eigenvalue pertama sahaja melebihi 1."]},{"title":"Variance — Cumulative","prompt":"Faktor ketiga mempunyai Cumulative % = 68.29. Apakah maksudnya?","options":["Tiga faktor menerangkan 68.29% variasi","Alpha ialah 68.29","68.29 item dikekalkan"],"answer":0,"explanation":"Cumulative % ialah jumlah variasi yang diterangkan oleh faktor dikekalkan.","optionReasons":["Betul. Cumulative % ialah jumlah variasi yang diterangkan oleh faktor dikekalkan.","Salah kerana “Alpha ialah 68.29” tidak menjawab konsep yang diuji. Cumulative % ialah jumlah variasi yang diterangkan oleh faktor dikekalkan.","Salah kerana “68.29 item dikekalkan” tidak menjawab konsep yang diuji. Cumulative % ialah jumlah variasi yang diterangkan oleh faktor dikekalkan."]},{"title":"Variance — Perangkap","prompt":"Komponen 4 eigenvalue .811 dan Cumulative 75.05%. Nilai cumulative mana patut dilapor jika guna kriteria >1?","options":["68.29% pada komponen 3","75.05% pada komponen 4","Kedua-duanya wajib"],"answer":0,"explanation":"Komponen 4 tidak dikekalkan kerana eigenvalue kurang daripada 1.","optionReasons":["Betul. Komponen 4 tidak dikekalkan kerana eigenvalue kurang daripada 1.","Salah kerana “75.05% pada komponen 4” tidak menjawab konsep yang diuji. Komponen 4 tidak dikekalkan kerana eigenvalue kurang daripada 1.","Salah kerana “Kedua-duanya wajib” tidak menjawab konsep yang diuji. Komponen 4 tidak dikekalkan kerana eigenvalue kurang daripada 1."]},{"title":"Scree Plot — Kenal","prompt":"Apakah bahagian utama yang dicari dalam scree plot?","options":["Titik elbow","Titik paling tinggi sahaja","Warna garisan"],"answer":0,"explanation":"Elbow menandakan perubahan daripada cerun curam kepada bahagian mendatar.","optionReasons":["Betul. Elbow menandakan perubahan daripada cerun curam kepada bahagian mendatar.","Salah kerana “Titik paling tinggi sahaja” tidak menjawab konsep yang diuji. Elbow menandakan perubahan daripada cerun curam kepada bahagian mendatar.","Salah kerana “Warna garisan” tidak menjawab konsep yang diuji. Elbow menandakan perubahan daripada cerun curam kepada bahagian mendatar."]},{"title":"Scree Plot — Tafsir","prompt":"Graf mula mendatar selepas komponen ketiga. Apakah sokongannya?","options":["Pengekalan tiga faktor","Pengekalan semua faktor","Reliability sangat tinggi"],"answer":0,"explanation":"Komponen sebelum bahagian mendatar biasanya dipertimbangkan.","optionReasons":["Betul. Komponen sebelum bahagian mendatar biasanya dipertimbangkan.","Salah kerana “Pengekalan semua faktor” tidak menjawab konsep yang diuji. Komponen sebelum bahagian mendatar biasanya dipertimbangkan.","Salah kerana “Reliability sangat tinggi” tidak menjawab konsep yang diuji. Komponen sebelum bahagian mendatar biasanya dipertimbangkan."]},{"title":"Scree Plot — Had","prompt":"Mengapa scree plot tidak patut digunakan seorang diri?","options":["Ia pertimbangan visual dan perlu dibandingkan dengan eigenvalue serta teori","Ia mengukur Cronbach’s Alpha","Ia tidak menunjukkan sebarang faktor"],"answer":0,"explanation":"Scree plot bersifat visual dan perlu disokong bukti lain.","optionReasons":["Betul. Scree plot bersifat visual dan perlu disokong bukti lain.","Salah kerana “Ia mengukur Cronbach’s Alpha” tidak menjawab konsep yang diuji. Scree plot bersifat visual dan perlu disokong bukti lain.","Salah kerana “Ia tidak menunjukkan sebarang faktor” tidak menjawab konsep yang diuji. Scree plot bersifat visual dan perlu disokong bukti lain."]},{"title":"Rotated Matrix — Loading","prompt":"Q1 loading: F1=.821, F2=.212, F3=.105. Q1 masuk faktor mana?","options":["Faktor 1","Faktor 2","Faktor 3"],"answer":0,"explanation":"Q1 memuat pada faktor dengan loading tertinggi.","optionReasons":["Betul. Q1 memuat pada faktor dengan loading tertinggi.","Salah kerana “Faktor 2” tidak menjawab konsep yang diuji. Q1 memuat pada faktor dengan loading tertinggi.","Salah kerana “Faktor 3” tidak menjawab konsep yang diuji. Q1 memuat pada faktor dengan loading tertinggi."]},{"title":"Rotated Matrix — Cross-loading","prompt":"Q4: F1=.421 dan F2=.466. Apakah isu utama?","options":["Cross-loading","KMO rendah","Alpha terlalu tinggi"],"answer":0,"explanation":"Dua loading yang hampir sama menunjukkan struktur item kurang jelas.","optionReasons":["Betul. Dua loading yang hampir sama menunjukkan struktur item kurang jelas.","Salah kerana “KMO rendah” tidak menjawab konsep yang diuji. Dua loading yang hampir sama menunjukkan struktur item kurang jelas.","Salah kerana “Alpha terlalu tinggi” tidak menjawab konsep yang diuji. Dua loading yang hampir sama menunjukkan struktur item kurang jelas."]},{"title":"Rotated Matrix — Gabung bukti","prompt":"C4 lemah dalam Item-Total, Communalities dan Rotated Matrix. Rumusan terbaik?","options":["Bukti konsisten menunjukkan C4 perlu diberi perhatian serius","Abaikan kerana hanya satu jadual penting","Buang semua item"],"answer":0,"explanation":"Jawapan cemerlang menggabungkan bukti merentas output.","optionReasons":["Betul. Jawapan cemerlang menggabungkan bukti merentas output.","Salah kerana “Abaikan kerana hanya satu jadual penting” tidak menjawab konsep yang diuji. Jawapan cemerlang menggabungkan bukti merentas output.","Salah kerana “Buang semua item” tidak menjawab konsep yang diuji. Jawapan cemerlang menggabungkan bukti merentas output."]}],"exam":[{"set":"Mock A","lesson":0,"prompt":"Interpret jadual Reliability Statistics.","keywords":[".884","baik","reliabel"],"override":{"type":"table","caption":"Reliability Statistics","headers":["Cronbach’s Alpha","N of Items"],"rows":[[{"text":".884"},{"text":"20"}]]},"model":"Berdasarkan jadual Reliability Statistics, nilai Cronbach’s Alpha ialah .884 bagi 20 item. Nilai ini menunjukkan kebolehpercayaan yang baik. Oleh itu, instrumen adalah reliabel."},{"set":"Mock A","lesson":1,"prompt":"Interpret item yang paling perlu diberi perhatian. Alpha asal = .884.","keywords":["q7",".248",".901","semak"],"override":{"type":"table","caption":"Item-Total Statistics","headers":["Item","Corrected Item-Total Correlation","Cronbach’s Alpha if Item Deleted"],"rows":[[{"text":"Q1"},{"text":".671"},{"text":".872"}],[{"text":"Q3"},{"text":".628"},{"text":".875"}],[{"text":"Q7"},{"text":".248"},{"text":".901"}],[{"text":"Q9"},{"text":".702"},{"text":".870"}]]},"model":"Q7 mempunyai Corrected Item-Total Correlation paling rendah, iaitu .248. Alpha meningkat daripada .884 kepada .901 jika Q7 dibuang. Oleh itu, Q7 perlu disemak dan boleh dipertimbangkan untuk digugurkan berdasarkan kandungan dan teori."},{"set":"Mock A","lesson":2,"prompt":"Tentukan sama ada data sesuai untuk factor analysis.","keywords":[".856","p < .001","sesuai"],"override":{"type":"kmo","caption":"KMO and Bartlett’s Test","rows":[{"label":"Kaiser-Meyer-Olkin Measure of Sampling Adequacy","text":".856"},{"label":"Bartlett’s Test — Approx. Chi-Square","text":"1654.233"},{"label":"Bartlett’s Test — df","text":"190"},{"label":"Bartlett’s Test — Sig.","text":".000"}]},"model":"Nilai KMO ialah .856 dan Bartlett’s Test adalah signifikan, p < .001. Oleh itu, data sesuai untuk factor analysis."},{"set":"Mock A","lesson":3,"prompt":"Kenal pasti item yang kurang diterangkan oleh faktor.","keywords":["q4",".298","kurang"],"override":{"type":"table","caption":"Communalities","headers":["Item","Initial","Extraction"],"rows":[[{"text":"Q1"},{"text":"1.000"},{"text":".721"}],[{"text":"Q2"},{"text":"1.000"},{"text":".654"}],[{"text":"Q4"},{"text":"1.000"},{"text":".298"}],[{"text":"Q5"},{"text":"1.000"},{"text":".744"}]]},"model":"Q4 mempunyai nilai Extraction paling rendah, iaitu .298. Ini menunjukkan Q4 kurang diterangkan oleh faktor yang terbentuk dan perlu disemak."},{"set":"Mock A","lesson":4,"prompt":"Nyatakan bilangan faktor dan jumlah variasi yang diterangkan.","keywords":["tiga","68.29","variasi"],"override":{"type":"table","caption":"Total Variance Explained","headers":["Component","Initial Eigenvalues — Total","% of Variance","Cumulative %"],"rows":[[{"text":"1"},{"text":"4.588"},{"text":"38.24"},{"text":"38.24"}],[{"text":"2"},{"text":"2.236"},{"text":"18.63"},{"text":"56.87"}],[{"text":"3"},{"text":"1.370"},{"text":"11.42"},{"text":"68.29"}],[{"text":"4"},{"text":".811"},{"text":"6.76"},{"text":"75.05"}]]},"model":"Tiga komponen mempunyai eigenvalue melebihi 1 dan menerangkan 68.29% daripada jumlah variasi. Oleh itu, tiga faktor dikekalkan."},{"set":"Mock A","lesson":5,"prompt":"Interpret scree plot dan nyatakan bilangan faktor yang disokong.","keywords":["elbow","ketiga","tiga faktor"],"override":{"type":"scree","caption":"Scree Plot"},"model":"Titik elbow berlaku sekitar komponen ketiga dan graf mula mendatar selepas itu. Oleh itu, scree plot menyokong pengekalan tiga faktor."},{"set":"Mock A","lesson":6,"prompt":"Tentukan struktur faktor dan item yang bermasalah.","keywords":["q1","q2","q3","q5","cross-loading","q4"],"override":{"type":"table","caption":"Rotated Component Matrix","headers":["Item","Factor 1","Factor 2","Factor 3"],"rows":[[{"text":"Q1"},{"text":".821"},{"text":".212"},{"text":".105"}],[{"text":"Q2"},{"text":".798"},{"text":".244"},{"text":".122"}],[{"text":"Q3"},{"text":".190"},{"text":".744"},{"text":".208"}],[{"text":"Q4"},{"text":".421"},{"text":".466"},{"text":".130"}],[{"text":"Q5"},{"text":".105"},{"text":".172"},{"text":".831"}]]},"model":"Q1 dan Q2 memuat pada Faktor 1, Q3 pada Faktor 2, dan Q5 pada Faktor 3. Q4 menunjukkan cross-loading pada Faktor 1 (.421) dan Faktor 2 (.466), maka item tersebut perlu disemak."},{"set":"Mock B","lesson":0,"prompt":"Interpret alpha yang sangat tinggi dan nyatakan kemungkinan isu.","keywords":[".967","sangat tinggi","berulang"],"override":{"type":"table","caption":"Reliability Statistics","headers":["Cronbach’s Alpha","N of Items"],"rows":[[{"text":".967"},{"text":"18"}]]},"model":"Nilai Cronbach’s Alpha ialah .967 bagi 18 item, menunjukkan kebolehpercayaan yang sangat tinggi. Walau bagaimanapun, nilai melebihi .95 boleh menunjukkan sebahagian item terlalu berulang, maka redundancy perlu disemak."},{"set":"Mock B","lesson":1,"prompt":"Interpret B5. Alpha asal = .742.","keywords":["b5",".221",".731","jangan"],"override":{"type":"table","caption":"Item-Total Statistics","headers":["Item","Corrected Item-Total Correlation","Cronbach’s Alpha if Item Deleted"],"rows":[[{"text":"B1"},{"text":".512"},{"text":".721"}],[{"text":"B3"},{"text":".486"},{"text":".726"}],[{"text":"B5"},{"text":".221"},{"text":".731"}],[{"text":"B6"},{"text":".559"},{"text":".714"}]]},"model":"B5 mempunyai Corrected Item-Total Correlation rendah, iaitu .221. Namun, alpha menurun daripada .742 kepada .731 jika B5 dibuang. Oleh itu, B5 perlu disemak tetapi tidak patut dibuang secara automatik berdasarkan reliability sahaja."},{"set":"Mock B","lesson":2,"prompt":"KMO rendah tetapi Bartlett signifikan. Tentukan kesesuaian factor analysis.","keywords":[".487","p < .001","tidak sesuai"],"override":{"type":"kmo","caption":"KMO and Bartlett’s Test","rows":[{"label":"Kaiser-Meyer-Olkin Measure of Sampling Adequacy","text":".487"},{"label":"Bartlett’s Test — Approx. Chi-Square","text":"410.552"},{"label":"Bartlett’s Test — df","text":"66"},{"label":"Bartlett’s Test — Sig.","text":".000"}]},"model":"Bartlett’s Test adalah signifikan, p < .001, tetapi nilai KMO hanya .487 dan berada di bawah .50. Oleh itu, data belum sesuai untuk factor analysis dan isu sampel atau item perlu diperiksa."},{"set":"Mock B","lesson":3,"prompt":"Interpret item dengan communality paling rendah.","keywords":["q6",".344","kurang"],"override":{"type":"table","caption":"Communalities","headers":["Item","Initial","Extraction"],"rows":[[{"text":"Q2"},{"text":"1.000"},{"text":".682"}],[{"text":"Q4"},{"text":"1.000"},{"text":".591"}],[{"text":"Q6"},{"text":"1.000"},{"text":".344"}],[{"text":"Q8"},{"text":"1.000"},{"text":".706"}]]},"model":"Q6 mempunyai nilai Extraction paling rendah, iaitu .344. Ini menunjukkan Q6 kurang diterangkan oleh faktor dan perlu disemak bersama bukti lain."},{"set":"Mock B","lesson":4,"prompt":"Tentukan bilangan faktor dan cumulative variance.","keywords":["dua","57.20","variasi"],"override":{"type":"table","caption":"Total Variance Explained","headers":["Component","Initial Eigenvalues — Total","% of Variance","Cumulative %"],"rows":[[{"text":"1"},{"text":"3.950"},{"text":"39.50"},{"text":"39.50"}],[{"text":"2"},{"text":"1.770"},{"text":"17.70"},{"text":"57.20"}],[{"text":"3"},{"text":".920"},{"text":"9.20"},{"text":"66.40"}],[{"text":"4"},{"text":".730"},{"text":"7.30"},{"text":"73.70"}]]},"model":"Dua komponen mempunyai eigenvalue melebihi 1 dan menerangkan 57.20% daripada jumlah variasi. Oleh itu, dua faktor dikekalkan berdasarkan kriteria eigenvalue."},{"set":"Mock B","lesson":5,"prompt":"Nyatakan apa yang boleh dan tidak boleh disimpulkan daripada scree plot.","keywords":["elbow","visual","eigenvalue"],"override":{"type":"scree","caption":"Scree Plot"},"model":"Scree plot menunjukkan elbow sekitar komponen ketiga dan secara visual menyokong tiga faktor. Namun, keputusan ini perlu dibandingkan dengan eigenvalue, struktur loading dan teori kerana scree plot ialah pertimbangan visual."},{"set":"Mock B","lesson":6,"prompt":"Interpret struktur dua faktor ini dan tentukan sama ada terdapat cross-loading jelas.","keywords":["r1","r2","r3","r4","tiada cross-loading"],"override":{"type":"table","caption":"Rotated Component Matrix","headers":["Item","Factor 1","Factor 2"],"rows":[[{"text":"R1"},{"text":".811"},{"text":".191"}],[{"text":"R2"},{"text":".763"},{"text":".228"}],[{"text":"R3"},{"text":".174"},{"text":".788"}],[{"text":"R4"},{"text":".206"},{"text":".742"}]]},"model":"R1 dan R2 memuat tinggi pada Faktor 1, manakala R3 dan R4 memuat tinggi pada Faktor 2. Tiada cross-loading yang jelas dalam jadual ini, maka struktur dua faktor kelihatan bersih."}]};
+const MIN_WRITTEN=20;
+const DEFAULT={
+ route:"home",lesson:0,stage:0,choice:null,selected:[],evaluated:false,
+ written:"",writtenChecked:false,practice:0,practiceScore:0,practiceChoice:null,
+ exam:0,examAnswers:Array(DATA.exam.length).fill(""),examFinished:false
+};
+function clone(v){return JSON.parse(JSON.stringify(v))}
+function load(){try{return {...clone(DEFAULT),...JSON.parse(localStorage.getItem("spss-v5-fixed")||"{}")}}catch(e){return clone(DEFAULT)}}
+let state=load();
+const screen=document.getElementById("screen");
+function save(){try{localStorage.setItem("spss-v5-fixed",JSON.stringify(state))}catch(e){}}
+function esc(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]))}
+function setRoute(route){state.route=route;save();render()}
+function resetStage(){state.stage=0;state.choice=null;state.selected=[];state.evaluated=false;state.written="";state.writtenChecked=false}
+function card(head,body,foot){return `<article class="card"><header class="head">${head}</header><div class="body">${body}</div><footer class="foot">${foot}</footer></article>`}
+function renderOutput(out,interactive=false){
+ if(out.type==="scree"){
+  const selected=state.selected.includes("elbow");
+  return `<div class="scree"><div class="output-title">${esc(out.caption)}</div>
+  <svg viewBox="0 0 620 300" aria-label="Scree Plot">
+   <rect class="spss-svg-bg" width="620" height="300"/><line x1="62" y1="250" x2="575" y2="250" class="spss-svg-axis" stroke-width="2"/><line x1="62" y1="250" x2="62" y2="42" class="spss-svg-axis" stroke-width="2"/>
+   <polyline points="105,60 175,128 245,194 315,229 385,239 455,245 525,248" fill="none" stroke="#7898ff" stroke-width="4"/>
+   <g fill="#7898ff"><circle cx="105" cy="60" r="6"/><circle cx="175" cy="128" r="6"/><circle cx="245" cy="194" r="6"/><circle cx="315" cy="229" r="6"/><circle cx="385" cy="239" r="6"/><circle cx="455" cy="245" r="6"/><circle cx="525" cy="248" r="6"/></g>
+   <g class="spss-svg-text" font-family="Arial" font-size="12"><text x="101" y="270">1</text><text x="171" y="270">2</text><text x="241" y="270">3</text><text x="311" y="270">4</text><text x="381" y="270">5</text><text x="451" y="270">6</text><text x="521" y="270">7</text></g>
+  </svg>${interactive?`<button class="hotspot cell ${selected?"selected":""}" data-cell="elbow" aria-label="Pilih elbow"></button>`:""}</div>`;
+ }
+ if(out.type==="kmo"){
+  return `<div class="output-shell"><div class="output-title">${esc(out.caption)}</div><table><tbody>${out.rows.map(r=>{
+   const cls=interactive&&r.id?cellClass(r.id):"";
+   return `<tr><td class="label" style="width:78%">${esc(r.label)}</td><td ${r.id&&interactive?`class="cell ${cls}" data-cell="${r.id}" tabindex="0"`:""}>${esc(r.text)}</td></tr>`;
+  }).join("")}</tbody></table></div>`;
+ }
+ return `<div class="output-shell"><div class="output-title">${esc(out.caption)}</div><table><thead><tr>${out.headers.map(h=>`<th>${esc(h)}</th>`).join("")}</tr></thead><tbody>${out.rows.map(row=>`<tr>${row.map(c=>`<td ${c.id&&interactive?`class="cell ${cellClass(c.id)}" data-cell="${c.id}" tabindex="0"`:""}>${esc(c.text)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
+}
+function cellClass(id){
+ if(!state.selected.includes(id)&&!state.evaluated)return "";
+ const lesson=DATA.lessons[state.lesson];
+ if(state.evaluated){
+  if(lesson.requiredCells.includes(id))return "correct";
+  if(state.selected.includes(id))return "wrong";
+ }
+ return state.selected.includes(id)?"selected":"";
+}
+function stages(){return `<div class="stages">${["Kenal","Scan","Ayat","Jawab"].map((x,i)=>`<span class="stage ${i===state.stage?"current":""} ${i<state.stage?"done":""}">${i+1}. ${x}</span>`).join("")}</div>`}
+function picker(){return `<select id="lessonPicker">${DATA.lessons.map((l,i)=>`<option value="${i}" ${i===state.lesson?"selected":""}>${i+1}. ${esc(l.short)}</option>`).join("")}</select>`}
+function nextButton(label="Seterusnya",enabled=false,action="next-stage"){return `<button class="primary" data-action="${action}" ${enabled?"":"disabled"}>${esc(label)} →</button>`}
+function renderHome(){
+ screen.innerHTML=card(`<div class="eyebrow">2-Day Exam Sprint</div><h1>Belajar membaca output SPSS</h1>`,
+ `<div class="hero"><p>Satu skrin, satu tugas. Tiada Next sebelum kau menjawab. Jika salah, sistem terangkan sebabnya sebelum membenarkan kau bergerak.</p>
+ <div class="stats"><div class="stat"><strong>7 topik</strong><span>Reliability hingga Rotated Matrix</span></div><div class="stat"><strong>28 langkah</strong><span>4 tahap setiap topik</span></div><div class="stat"><strong>21 latihan</strong><span>Daripada asas ke perangkap</span></div><div class="stat"><strong>14 exam</strong><span>Mock A dan Mock B</span></div></div>
+ <div class="formula">Berdasarkan jadual [nama], nilai [statistik] ialah [nilai]. Nilai ini menunjukkan [maksud]. Oleh itu, [kesimpulan].</div>
+ <div class="actions"><button class="primary" data-action="start-learn">Mula belajar</button><button class="secondary" data-action="resume-learn">Sambung lesson ${state.lesson+1}</button><button class="secondary" data-action="start-exam">Exam Mode</button></div></div>`,
+ `<small style="color:var(--muted)">Progress disimpan pada peranti ini.</small><button class="ghost" data-action="reset-all">Reset</button>`);
+}
+function detailedSelectionFeedback(lesson){
+ const selected=new Set(state.selected),required=new Set(lesson.requiredCells);
+ const lines=[];
+ [...selected].forEach(id=>{
+  const info=lesson.cellInfo[id];
+  if(info)lines.push(`<div class="explain"><strong>${required.has(id)?"✓ Betul dipilih":"✗ Salah dipilih"} — ${esc(info.label)}</strong><br>${esc(info.reason)}</div>`);
+ });
+ [...required].filter(id=>!selected.has(id)).forEach(id=>{
+  const info=lesson.cellInfo[id];
+  if(info)lines.push(`<div class="explain"><strong>＋ Tertinggal — ${esc(info.label)}</strong><br>${esc(info.reason)}</div>`);
+ });
+ return lines.join("");
+}
+function renderLearn(){
+ const l=DATA.lessons[state.lesson];
+ let body=stages()+picker(),foot="";
+ if(state.stage===0){
+  body+=`<div class="prompt"><strong>${esc(l.question)}</strong></div>${renderOutput(l.output)}
+  <div class="options">${l.identifyOptions.map((o,i)=>`<button class="option ${state.choice===i?(i===l.identifyAnswer?"correct":"wrong"):""} ${state.choice!==null&&i===l.identifyAnswer?"correct":""}" data-action="identify" data-index="${i}" ${state.choice!==null?"disabled":""}>${esc(o)}</button>`).join("")}</div>
+  ${state.choice!==null?`<div class="feedback ${state.choice===l.identifyAnswer?"good":"bad"}">${esc(l.identifyReasons[state.choice])}</div>`:""}`;
+  foot=`<button class="secondary" data-action="prev-lesson">← Kembali</button>${nextButton("Scan input",state.choice!==null)}`;
+ }else if(state.stage===1){
+  body+=`${l.context?`<span class="context">${esc(l.context)}</span>`:""}<div class="prompt"><strong>${esc(l.task)}</strong></div>${renderOutput(l.output,true)}
+  ${state.evaluated?`<div class="feedback ${exactScan(l)?"good":"bad"}">${exactScan(l)?"Pilihan tepat.":"Pilihan belum tepat. Berikut sebab bagi setiap pilihan:"}</div><div class="explain-list">${detailedSelectionFeedback(l)}</div>`:""}`;
+  foot=`<button class="secondary" data-action="prev-stage">← Kembali</button>${state.evaluated?nextButton("Ayat",true):`<button class="primary" data-action="check-scan" ${state.selected.length?"":"disabled"}>Semak pilihan</button>`}`;
+ }else if(state.stage===2){
+  body+=`<div class="prompt"><strong>Pilih ayat pembukaan yang tepat.</strong><br><span style="color:var(--muted)">Nama jadual → statistik → nilai.</span></div>${renderOutput(l.output)}
+  <div class="options">${l.openings.map((o,i)=>`<button class="option ${state.choice===i?(i===l.openingAnswer?"correct":"wrong"):""} ${state.choice!==null&&i===l.openingAnswer?"correct":""}" data-action="opening" data-index="${i}" ${state.choice!==null?"disabled":""}>${esc(o)}</button>`).join("")}</div>
+  ${state.choice!==null?`<div class="feedback ${state.choice===l.openingAnswer?"good":"bad"}">${esc(l.openingReasons[state.choice])}</div>`:""}`;
+  foot=`<button class="secondary" data-action="prev-stage">← Kembali</button>${nextButton("Jawab sendiri",state.choice!==null)}`;
+ }else{
+  const valid=state.written.trim().length>=MIN_WRITTEN;
+  body+=`<div class="prompt"><strong>Tulis interpretasi lengkap tanpa melihat model.</strong></div>${renderOutput(l.output)}
+  <textarea id="lessonAnswer" placeholder="Berdasarkan jadual ${esc(l.title)}, ...">${esc(state.written)}</textarea>
+  <div class="counter"><span id="writeCount">${state.written.trim().length}</span> aksara • minimum ${MIN_WRITTEN}</div>
+  <div class="keywords">${l.keywords.map(k=>`<span class="keyword ${state.written.toLowerCase().includes(k.toLowerCase())?"hit":""}">${esc(k)}</span>`).join("")}</div>
+  ${state.writtenChecked?writtenFeedback(l):""}`;
+  foot=`<button class="secondary" data-action="prev-stage">← Kembali</button>${state.writtenChecked?nextButton(state.lesson===DATA.lessons.length-1?"Pergi latihan":"Lesson seterusnya",true,state.lesson===DATA.lessons.length-1?"go-practice":"next-lesson"):`<button class="primary" id="checkWritten" data-action="check-written" ${valid?"":"disabled"}>Semak jawapan</button>`}`;
+ }
+ screen.innerHTML=card(`<div class="eyebrow">Lesson ${state.lesson+1} daripada ${DATA.lessons.length}</div><h2>${esc(l.title)}</h2>`,body,foot);
+}
+function exactScan(l){return state.selected.length===l.requiredCells.length&&l.requiredCells.every(id=>state.selected.includes(id))}
+function writtenFeedback(l){
+ const text=state.written.toLowerCase(),hits=l.keywords.filter(k=>text.includes(k.toLowerCase())).length;
+ const good=hits>=Math.ceil(l.keywords.length*.6);
+ return `<div class="feedback ${good?"good":"bad"}">${good?`Jawapan mengandungi ${hits}/${l.keywords.length} elemen penting.`:`Jawapan baru mengandungi ${hits}/${l.keywords.length} elemen penting. Bandingkan dengan model.`}</div><div class="formula">${esc(l.model)}</div>`;
+}
+function renderPractice(){
+ const q=DATA.practice[state.practice];
+ if(!q){
+  const pct=Math.round(state.practiceScore/DATA.practice.length*100);
+  screen.innerHTML=card(`<div class="eyebrow">Latihan selesai</div><h2>Skor ${pct}%</h2>`,`<div class="hero"><div class="progress"><span style="width:${pct}%"></span></div><p>${state.practiceScore}/${DATA.practice.length} jawapan betul.</p></div>`,`<button class="secondary" data-action="reset-practice">Ulang</button><button class="primary" data-action="start-exam">Exam Mode →</button>`);return;
+ }
+ const answered=state.practiceChoice!==null;
+ screen.innerHTML=card(`<div class="eyebrow">Latihan ${state.practice+1}/${DATA.practice.length}</div><h2>${esc(q.title)}</h2>`,
+ `<div class="progress"><span style="width:${state.practice/DATA.practice.length*100}%"></span></div><div class="prompt"><strong>${esc(q.prompt)}</strong></div>
+ <div class="options">${q.options.map((o,i)=>`<button class="option ${answered&&i===q.answer?"correct":""} ${answered&&i===state.practiceChoice&&i!==q.answer?"wrong":""}" data-action="practice-answer" data-index="${i}" ${answered?"disabled":""}>${esc(o)}</button>`).join("")}</div>
+ ${answered?`<div class="feedback ${state.practiceChoice===q.answer?"good":"bad"}">${esc(q.optionReasons[state.practiceChoice])}</div>`:""}`,
+ `<small style="color:var(--muted)">Skor ${state.practiceScore}/${state.practice}</small>${nextButton("Seterusnya",answered,"next-practice")}`);
+}
+function renderExam(){
+ if(state.examFinished){renderExamResult();return}
+ const q=DATA.exam[state.exam],answer=state.examAnswers[state.exam]||"",valid=answer.trim().length>=MIN_WRITTEN;
+ screen.innerHTML=card(`<div class="eyebrow">${esc(q.set||"Exam")} • ${state.exam+1}/${DATA.exam.length}</div><h2>${esc(q.prompt)}</h2>`,
+ `${renderOutput(q.override)}<textarea id="examAnswer" placeholder="Tulis jawapan penuh...">${esc(answer)}</textarea><div class="counter"><span id="examCount">${answer.trim().length}</span> aksara • minimum ${MIN_WRITTEN}. Tiada Next jika kosong.</div>`,
+ `<button class="secondary" data-action="prev-exam" ${state.exam===0?"disabled":""}>← Sebelum</button><button class="primary" id="examNext" data-action="${state.exam===DATA.exam.length-1?"finish-exam":"next-exam"}" ${valid?"":"disabled"}>${state.exam===DATA.exam.length-1?"Tamat & semak":"Simpan & seterusnya →"}</button>`);
+}
+function renderExamResult(){
+ let hit=0,total=0;
+ const details=DATA.exam.map((q,i)=>{const t=(state.examAnswers[i]||"").toLowerCase(),h=q.keywords.filter(k=>t.includes(k.toLowerCase())).length;hit+=h;total+=q.keywords.length;return `<details><summary>Soalan ${i+1}: ${h}/${q.keywords.length} elemen</summary><div class="formula">${esc(q.model)}</div></details>`}).join("");
+ const pct=Math.round(hit/total*100);
+ screen.innerHTML=card(`<div class="eyebrow">Keputusan struktur</div><h2>${pct}%</h2>`,`<div class="progress"><span style="width:${pct}%"></span></div><p style="color:var(--muted)">Semakan elemen penting, bukan markah bahasa penuh.</p>${details}`,`<button class="secondary" data-action="reset-exam">Cuba semula</button><button class="primary" data-action="go-practice">Latihan</button>`);
+}
+function render(){
+ document.querySelectorAll(".navbtn").forEach(b=>b.classList.toggle("active",b.dataset.route===state.route));
+ if(state.route==="home")renderHome();else if(state.route==="learn")renderLearn();else if(state.route==="practice")renderPractice();else renderExam();
+}
+document.addEventListener("click",e=>{
+ const route=e.target.closest("[data-route]");if(route){setRoute(route.dataset.route);return}
+ const cell=e.target.closest("[data-cell]");
+ if(cell&&state.route==="learn"&&state.stage===1&&!state.evaluated){
+  const id=cell.dataset.cell,i=state.selected.indexOf(id);if(i>=0)state.selected.splice(i,1);else state.selected.push(id);save();render();return;
+ }
+ const b=e.target.closest("[data-action]");if(!b||b.disabled)return;
+ const a=b.dataset.action;
+ if(a==="start-learn"){state.route="learn";state.lesson=0;resetStage()}
+ else if(a==="resume-learn"){state.route="learn"}
+ else if(a==="start-exam"){state.route="exam";state.exam=0;state.examFinished=false}
+ else if(a==="go-practice"){state.route="practice"}
+ else if(a==="reset-all"){state=clone(DEFAULT)}
+ else if(a==="identify"){state.choice=Number(b.dataset.index)}
+ else if(a==="opening"){state.choice=Number(b.dataset.index)}
+ else if(a==="check-scan"){state.evaluated=true}
+ else if(a==="next-stage"){state.stage++;state.choice=null;state.selected=[];state.evaluated=false;state.written="";state.writtenChecked=false}
+ else if(a==="prev-stage"){state.stage=Math.max(0,state.stage-1);state.choice=null;state.selected=[];state.evaluated=false;state.writtenChecked=false}
+ else if(a==="prev-lesson"){if(state.lesson===0)state.route="home";else{state.lesson--;resetStage()}}
+ else if(a==="check-written"){if(state.written.trim().length>=MIN_WRITTEN)state.writtenChecked=true}
+ else if(a==="next-lesson"){state.lesson++;resetStage()}
+ else if(a==="practice-answer"){state.practiceChoice=Number(b.dataset.index);if(state.practiceChoice===DATA.practice[state.practice].answer)state.practiceScore++}
+ else if(a==="next-practice"){state.practice++;state.practiceChoice=null}
+ else if(a==="reset-practice"){state.practice=0;state.practiceScore=0;state.practiceChoice=null}
+ else if(a==="prev-exam"){state.exam=Math.max(0,state.exam-1)}
+ else if(a==="next-exam"){if((state.examAnswers[state.exam]||"").trim().length>=MIN_WRITTEN)state.exam++}
+ else if(a==="finish-exam"){if((state.examAnswers[state.exam]||"").trim().length>=MIN_WRITTEN)state.examFinished=true}
+ else if(a==="reset-exam"){state.exam=0;state.examAnswers=Array(DATA.exam.length).fill("");state.examFinished=false}
+ save();render();
+});
+document.addEventListener("input",e=>{
+ if(e.target.id==="lessonAnswer"){
+  state.written=e.target.value;save();
+  const count=document.getElementById("writeCount");if(count)count.textContent=state.written.trim().length;
+  const btn=document.getElementById("checkWritten");if(btn)btn.disabled=state.written.trim().length<MIN_WRITTEN;
+  document.querySelectorAll(".keyword").forEach(k=>k.classList.toggle("hit",state.written.toLowerCase().includes(k.textContent.toLowerCase())));
+ }
+ if(e.target.id==="examAnswer"){
+  state.examAnswers[state.exam]=e.target.value;save();
+  const count=document.getElementById("examCount");if(count)count.textContent=e.target.value.trim().length;
+  const btn=document.getElementById("examNext");if(btn)btn.disabled=e.target.value.trim().length<MIN_WRITTEN;
+ }
+});
+document.addEventListener("change",e=>{
+ if(e.target.id==="lessonPicker"){state.lesson=Number(e.target.value);resetStage();save();render()}
+});
 
-const Q=[
-{lv:1,q:'Kau nampak tajuk “Reliability Statistics”. Apakah soalan table ini?',o:['Data sesuai untuk factor analysis?','Instrumen reliabel?','Item masuk faktor mana?'],a:1,e:'Table ini menjawab kebolehpercayaan instrumen.'},
-{lv:1,q:'Dalam KMO and Bartlett, input utama?',o:['KMO dan Sig.','df dan Chi-square sahaja','Alpha dan N of Items'],a:0,e:'KMO dan Sig. ialah scan utama.'},
-{lv:1,q:'Dalam Communalities, kolum yang perlu dilihat?',o:['Initial','Extraction','Component'],a:1,e:'Extraction menunjukkan sejauh mana item diterangkan.'},
-{lv:2,q:'Alpha .853. Ayat mula terbaik?',o:["Nilai ini bagus.","Berdasarkan jadual Reliability Statistics, nilai Cronbach's Alpha ialah .853.","Oleh itu semua item betul."],a:1,e:'Ayat exam bermula dengan nama table, statistik dan nilai.'},
-{lv:2,q:'KMO .824 dan Sig. .000. Cara tulis?',o:['KMO .824 dan p < .001','KMO .824 dan p = 0','KMO tidak penting'],a:0,e:'Sig. .000 dilaporkan p < .001.'},
-{lv:2,q:'Tiga eigenvalue >1 dan cumulative 68.29%. Kesimpulan?',o:['Tiga faktor menerangkan 68.29% variasi','Alpha 68.29','Tiga item perlu dibuang'],a:0,e:'Gabungkan bilangan faktor dan cumulative variance.'},
-{lv:3,q:'A5 correlation .254 dan alpha naik .853→.882. Apakah ayat matang?',o:['Buang serta-merta','A5 perlu disemak dan dipertimbangkan untuk digugurkan berdasarkan teori','Semua item gagal'],a:1,e:'Jangan buat keputusan mekanikal tanpa kandungan dan teori.'},
-{lv:3,q:'Q4 loading .421 dan .466 pada dua faktor. Apakah diagnosis?',o:['Cross-loading','Reliability tinggi','KMO rendah'],a:0,e:'Dua loading hampir sama menunjukkan cross-loading.'},
-{lv:3,q:'C4 lemah dalam Item-Total, communality .292 dan cross-loading. Rumusan?',o:['Bukti konsisten menunjukkan C4 perlu diberi perhatian serius','Abaikan kerana alpha tinggi','KMO pasti rendah'],a:0,e:'Jawapan cemerlang menggabungkan bukti merentas table.'}
-];
-function renderPractice(){if(st.q>=Q.length){document.getElementById('practiceArea').innerHTML=`<div class="notice"><h2>${Math.round(st.score/Q.length*100)}%</h2><b>${st.score>=7?'Kau boleh masuk Exam Mode.':'Ulang sehingga sekurang-kurangnya 7/9.'}</b></div><button class="full" onclick="go('exam')">Masuk Exam Mode</button>`;document.getElementById('nextBtn').classList.add('hidden');return}const x=Q[st.q];document.getElementById('pLevel').textContent='LEVEL '+x.lv;document.getElementById('pScore').textContent=`${st.score}/${st.q}`;document.getElementById('pBar').style.width=(st.q/Q.length*100)+'%';document.getElementById('practiceArea').innerHTML=`<div class="tile"><span class="badge">SOALAN ${st.q+1}/${Q.length}</span><h3>${x.q}</h3>${x.o.map((v,i)=>`<label class="choice"><input type="radio" name="opt" value="${i}"> ${v}</label>`).join('')}<button class="full" onclick="checkQ()">Semak</button><div id="fb" class="feedback"></div></div>`;document.getElementById('nextBtn').classList.add('hidden')}
-function checkQ(){if(st.answered)return;const v=document.querySelector('input[name=opt]:checked'),f=document.getElementById('fb');if(!v){f.className='feedback no';f.textContent='Pilih jawapan dahulu.';return}const x=Q[st.q],ok=Number(v.value)===x.a;st.answered=true;if(ok)st.score++;save();f.className='feedback '+(ok?'ok':'no');f.textContent=(ok?'Betul. ':'Belum tepat. ')+x.e;document.getElementById('nextBtn').classList.remove('hidden')}
-function nextQ(){st.q++;st.answered=false;save();renderPractice()}function resetPractice(){st.q=0;st.score=0;st.answered=false;save();renderPractice()}
-
-const exam=box('Reliability Statistics','<tr><th>Cronbach\\'s Alpha</th><th>N of Items</th></tr>','<tr><td>.918</td><td>14</td></tr>')+box('Item-Total Statistics','<tr><th>Item</th><th>Corrected Item-Total Correlation</th><th>Alpha if Item Deleted</th></tr>','<tr><td>C1</td><td>.721</td><td>.907</td></tr><tr><td>C2</td><td>.694</td><td>.909</td></tr><tr><td>C3</td><td>.663</td><td>.911</td></tr><tr><td>C4</td><td>.286</td><td>.921</td></tr>')+box("KMO and Bartlett's Test",'<tr><th colspan="2"></th><th>Value</th></tr>','<tr><td colspan="2">Kaiser-Meyer-Olkin Measure of Sampling Adequacy.</td><td>.792</td></tr><tr><td rowspan="3">Bartlett\\'s Test</td><td class="label">Approx. Chi-Square</td><td>1240.580</td></tr><tr><td class="label">df</td><td>91</td></tr><tr><td class="label">Sig.</td><td>.000</td></tr>')+box('Communalities','<tr><th>Item</th><th>Initial</th><th>Extraction</th></tr>','<tr><td>C1</td><td>1.000</td><td>.742</td></tr><tr><td>C2</td><td>1.000</td><td>.688</td></tr><tr><td>C3</td><td>1.000</td><td>.624</td></tr><tr><td>C4</td><td>1.000</td><td>.292</td></tr>')+box('Total Variance Explained','<tr><th>Component</th><th>Eigenvalue</th><th>% Variance</th><th>Cumulative %</th></tr>','<tr><td>1</td><td>5.012</td><td>35.800</td><td>35.800</td></tr><tr><td>2</td><td>2.470</td><td>17.640</td><td>53.440</td></tr><tr><td>3</td><td>1.516</td><td>10.830</td><td>64.270</td></tr><tr><td>4</td><td>.812</td><td>5.800</td><td>70.070</td></tr>')+box('Rotated Component Matrix','<tr><th>Item</th><th>Factor 1</th><th>Factor 2</th><th>Factor 3</th></tr>','<tr><td>C1</td><td>.812</td><td>.190</td><td>.102</td></tr><tr><td>C2</td><td>.774</td><td>.210</td><td>.114</td></tr><tr><td>C3</td><td>.186</td><td>.732</td><td>.208</td></tr><tr><td>C4</td><td>.438</td><td>.461</td><td>.125</td></tr>');
-document.getElementById('examTables').innerHTML=exam;
-document.getElementById('model').textContent=`Berdasarkan jadual Reliability Statistics, nilai Cronbach's Alpha ialah .918 bagi 14 item. Nilai ini menunjukkan instrumen mempunyai kebolehpercayaan yang sangat tinggi.
-
-Item-Total Statistics menunjukkan bahawa C4 mempunyai Corrected Item-Total Correlation paling rendah, iaitu .286. Alpha meningkat sedikit kepada .921 jika C4 dibuang. Oleh itu, C4 perlu disemak, tetapi tidak seharusnya dibuang secara automatik tanpa mempertimbangkan kandungan dan teori.
-
-Nilai KMO ialah .792 dan Bartlett's Test adalah signifikan, p < .001. Oleh itu, data sesuai untuk factor analysis.
-
-Dalam jadual Communalities, C4 mempunyai nilai Extraction paling rendah, iaitu .292, menunjukkan item tersebut kurang diterangkan oleh faktor.
-
-Tiga komponen mempunyai eigenvalue melebihi 1 dan menerangkan 64.27% daripada jumlah variasi.
-
-Rotated Component Matrix menunjukkan C1 dan C2 memuat pada Faktor 1, C3 pada Faktor 2, manakala C4 menunjukkan cross-loading pada Faktor 1 (.438) dan Faktor 2 (.461). Secara keseluruhan, instrumen reliabel dan data sesuai untuk factor analysis, tetapi C4 perlu diberi perhatian serius kerana menunjukkan masalah secara konsisten merentas beberapa output.`;
-function markExam(){const t=document.getElementById('examAnswer').value.toLowerCase(),checks=[['Nama Reliability Statistics','reliability'],['Cronbach’s Alpha .918','.918'],['C4 item bermasalah','c4'],['KMO .792','.792'],['Bartlett p < .001',t.includes('p < .001')||t.includes('p<.001')],['Tiga faktor',t.includes('tiga faktor')||t.includes('3 faktor')],['64.27%','64.27'],['Cross-loading','cross-loading']];let score=0,html='<div class="card"><h3>Rubrik struktur</h3>';checks.forEach(c=>{const ok=typeof c[1]==='boolean'?c[1]:t.includes(c[1]);if(ok)score++;html+=`<div class="${ok?'feedback ok':'feedback no'}">${ok?'✓':'✗'} ${c[0]}</div>`});html+=`<div class="notice"><b>Skor struktur: ${score}/8</b><p>Ini menyemak kewujudan bukti penting, bukan kualiti bahasa penuh.</p></div></div>`;document.getElementById('examFeedback').innerHTML=html}
-function resetExam(){document.getElementById('examAnswer').value='';document.getElementById('examFeedback').innerHTML=''}
-renderPractice();
+const TABLE_THEME_LABELS={dim:"Table: Dim",cool:"Table: Cool",dark:"Table: Dark"};
+function applyTableTheme(theme){
+  const valid=["dim","cool","dark"].includes(theme)?theme:"dim";
+  document.body.dataset.tableTheme=valid;
+  const button=document.getElementById("tableThemeButton");
+  if(button)button.textContent=TABLE_THEME_LABELS[valid];
+  try{localStorage.setItem("spss-table-theme",valid)}catch(e){}
+}
+function cycleTableTheme(){
+  const current=document.body.dataset.tableTheme||"dim";
+  const next=current==="dim"?"cool":current==="cool"?"dark":"dim";
+  applyTableTheme(next);
+}
+document.getElementById("tableThemeButton").addEventListener("click",cycleTableTheme);
+let initialTableTheme="dim";
+try{initialTableTheme=localStorage.getItem("spss-table-theme")||"dim"}catch(e){}
+applyTableTheme(initialTableTheme);
+render();
 </script>
 </body></html>
